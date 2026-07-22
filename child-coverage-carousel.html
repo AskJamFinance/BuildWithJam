@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How Much Coverage Should a Child Have? | 孩子应该有多少保障</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A2D51;
+    --purple:#754CA6;
+    --purple-soft:#9170B8;
+    --lavender:#F1EBFA;
+    --gold:#D6A84B;
+    --gold-soft:#F3E2C0;
+    --cream:#FFFAF3;
+    --ink:#1B1330;
+    --muted:#6C6178;
+    --white:#ffffff;
+    --line:#E6DEF1;
+    --grad: linear-gradient(165deg, #0A2D51 0%, #754CA6 62%, #9170B8 100%);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Inter","Noto Sans SC",sans-serif;
+    background:#E8E1F0;
+    color:var(--ink);
+  }
+
+  .cn{ font-family:"Noto Serif SC","Fraunces",serif; }
+  .cn-sans{ font-family:"Noto Sans SC","Inter",sans-serif; }
+
+  .page-wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:28px 18px 70px;
+  }
+
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    margin-bottom:22px;
+    flex-wrap:wrap;
+  }
+
+  .topbar .brandmark{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .brandmark .logo-dot{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--grad);
+    display:grid;place-items:center;
+    flex:0 0 auto;
+  }
+
+  .brandmark h1{
+    margin:0;
+    font-family:"Fraunces",serif;
+    font-size:19px;
+    font-weight:600;
+    color:var(--navy);
+    letter-spacing:.2px;
+  }
+
+  .brandmark span{
+    display:block;
+    font-size:12px;
+    color:var(--muted);
+    font-weight:500;
+  }
+
+  .actions{ display:flex; gap:10px; flex-wrap:wrap; }
+
+  button{
+    border:0;
+    border-radius:999px;
+    padding:11px 18px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:14px;
+    background:var(--navy);
+    color:white;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  button:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(10,45,81,.25); }
+
+  button.secondary{
+    background:white;
+    color:var(--navy);
+    border:1.5px solid var(--line);
+  }
+
+  .cta-band{
+    max-width:920px;
+    margin:32px auto 0;
+    background:var(--grad);
+    color:white;
+    border-radius:26px;
+    padding:40px 44px;
+    text-align:center;
+  }
+  .cta-band h3{
+    margin:0 0 8px;
+    font-family:"Fraunces",serif;
+    font-weight:600;
+    font-size:26px;
+    color:white;
+  }
+  .cta-band p{
+    margin:0 auto 24px;
+    max-width:480px;
+    font-size:15.5px;
+    color:rgba(255,255,255,.85);
+  }
+  .cta-band a.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:white;
+    color:var(--navy);
+    font-weight:700;
+    font-size:16px;
+    padding:15px 28px;
+    border-radius:999px;
+    text-decoration:none;
+    box-shadow:0 14px 30px rgba(0,0,0,.18);
+    transition:transform .15s ease;
+  }
+  .cta-band a.btn:hover{ transform:translateY(-2px); }
+
+  @media (max-width:780px){
+    .cta-band{ padding:32px 24px; margin:24px 12px 0; }
+    .cta-band h3{ font-size:21px; }
+  }
+
+  .carousel-shell{
+    position:relative;
+    width:100%;
+    max-width:920px;
+    margin:0 auto;
+  }
+
+  .slide{
+    width:100%;
+    aspect-ratio:4/5;
+    min-height:680px;
+    background:var(--cream);
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 24px 60px rgba(10,45,81,.16);
+    display:none;
+    position:relative;
+    border:1px solid rgba(117,76,166,.08);
+  }
+
+  .slide.active{display:block;}
+
+  .slide-inner{
+    height:100%;
+    padding:56px 54px 46px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+  }
+
+  .slide-number{
+    position:absolute;
+    top:26px;
+    right:32px;
+    font-size:12px;
+    font-weight:700;
+    color:var(--purple);
+    letter-spacing:1px;
+    z-index:3;
+  }
+
+  .brand-footer{
+    position:absolute;
+    left:32px;
+    bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.3px;
+    color:var(--purple);
+    z-index:3;
+  }
+
+  .brand-footer::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  .kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    align-self:flex-start;
+    padding:7px 14px;
+    border-radius:999px;
+    background:var(--lavender);
+    color:var(--purple);
+    font-weight:700;
+    font-size:13px;
+    margin-bottom:22px;
+    letter-spacing:.2px;
+  }
+
+  .kicker::before{
+    content:"";
+    width:6px;height:6px;border-radius:50%;
+    background:var(--purple);
+  }
+
+  h2{
+    margin:0 0 8px;
+    font-family:"Fraunces",serif;
+    font-weight:500;
+    font-size:42px;
+    line-height:1.12;
+    color:var(--navy);
+    letter-spacing:-.3px;
+  }
+
+  h3.cn{
+    margin:0 0 18px;
+    font-size:24px;
+    line-height:1.35;
+    color:var(--purple);
+    font-weight:700;
+  }
+
+  .lead{
+    font-size:21px;
+    line-height:1.5;
+    margin:4px 0;
+    color:var(--ink);
+  }
+
+  .sublead{
+    color:var(--muted);
+    font-size:16.5px;
+    line-height:1.6;
+    margin:6px 0 0;
+  }
+  .sublead.cn-sans{ font-size:16px; }
+
+  .illustration{
+    display:flex;
+    justify-content:center;
+    margin:6px 0 6px;
+  }
+  .illustration svg{ display:block; }
+
+  .highlight-box{
+    margin-top:22px;
+    padding:24px 26px;
+    border-radius:22px;
+    background:white;
+    border:1.5px solid var(--line);
+    position:relative;
+  }
+  .highlight-box strong.label{
+    display:inline-block;
+    margin-bottom:10px;
+    color:var(--navy);
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+    font-weight:800;
+  }
+
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:18px;
+  }
+
+  .card{
+    padding:20px 20px 22px;
+    border-radius:20px;
+    background:white;
+    border:1px solid var(--line);
+  }
+  .card .icon-wrap{
+    width:42px;height:42px;
+    border-radius:12px;
+    background:var(--lavender);
+    display:grid;place-items:center;
+    margin-bottom:12px;
+  }
+
+  .card strong{
+    display:block;
+    margin-bottom:6px;
+    color:var(--navy);
+    font-size:17px;
+    font-weight:700;
+  }
+  .card strong .cn{ display:block; font-size:14px; color:var(--purple); font-weight:600; margin-top:2px;}
+
+  .card p{
+    margin:0;
+    font-size:14.5px;
+    line-height:1.5;
+    color:var(--muted);
+  }
+
+  ul{ margin:12px 0 0; padding-left:0; list-style:none; }
+  li{
+    margin:12px 0;
+    font-size:16.5px;
+    line-height:1.5;
+    padding-left:26px;
+    position:relative;
+    color:var(--ink);
+  }
+  li::before{
+    content:"";
+    position:absolute;
+    left:0; top:8px;
+    width:9px;height:9px;
+    border-radius:2px;
+    background:var(--gold);
+    transform:rotate(45deg);
+  }
+  li .cn-sans{ display:block; color:var(--muted); font-size:14.5px; margin-top:2px; }
+
+  .amount-band{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin:16px 0 4px;
+    flex-wrap:wrap;
+  }
+  .amount{
+    font-family:"Fraunces",serif;
+    font-size:40px;
+    line-height:1;
+    color:var(--navy);
+    font-weight:600;
+  }
+  .amount .to{ color:var(--gold); font-size:26px; margin:0 6px; }
+
+  .gauge-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:18px 0 4px;
+  }
+  .gauge-track{
+    flex:1;
+    height:10px;
+    border-radius:999px;
+    background:var(--lavender);
+    overflow:hidden;
+  }
+  .gauge-fill{
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--purple),var(--gold));
+  }
+  .gauge-label{
+    font-size:12px;
+    font-weight:700;
+    color:var(--purple);
+    white-space:nowrap;
+  }
+
+  .benchmark-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-top:22px;
+  }
+  .benchmark{
+    border-radius:20px;
+    padding:20px 16px;
+    color:white;
+    min-height:210px;
+    position:relative;
+    overflow:hidden;
+  }
+  .benchmark::after{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(120px 120px at 100% 0%, rgba(255,255,255,.18), transparent 70%);
+  }
+  .benchmark.basic{ background:linear-gradient(160deg,#0A2D51,#1c4a7d); }
+  .benchmark.moderate{ background:linear-gradient(160deg,#5b3585,#754CA6); }
+  .benchmark.higher{ background:linear-gradient(160deg,#8a4a3d,#c07a4b); }
+
+  .benchmark h4{
+    margin:0 0 10px;
+    font-size:19px;
+    font-weight:700;
+    position:relative; z-index:1;
+  }
+  .benchmark h4 .cn{ display:block; font-size:14px; font-weight:600; opacity:.85; margin-top:2px;}
+  .benchmark p{
+    margin:6px 0;
+    font-size:13.5px;
+    line-height:1.4;
+    position:relative; z-index:1;
+    opacity:.95;
+  }
+
+  .priority{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:24px;
+  }
+  .priority-row{
+    background:white;
+    border-radius:16px;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    border:1px solid var(--line);
+    border-left:5px solid var(--gold);
+  }
+  .priority-row .num{
+    width:34px;height:34px;
+    border-radius:10px;
+    background:var(--navy);
+    color:white;
+    display:grid;
+    place-items:center;
+    font-weight:800;
+    font-size:14px;
+    flex:0 0 auto;
+  }
+  .priority-row .txt strong{
+    display:block;
+    font-size:16.5px;
+    color:var(--navy);
+  }
+  .priority-row .txt span{
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  .quote-card{
+    margin:auto 0 0;
+    padding:32px 30px;
+    border-radius:24px;
+    background:var(--grad);
+    color:white;
+    position:relative;
+    overflow:hidden;
+  }
+  .quote-card::before{
+    content:"“";
+    position:absolute;
+    top:-6px; left:18px;
+    font-family:"Fraunces",serif;
+    font-size:110px;
+    color:rgba(255,255,255,.14);
+    line-height:1;
+  }
+  .quote-card p{
+    position:relative; z-index:1;
+    font-family:"Fraunces",serif;
+    font-size:23px;
+    line-height:1.5;
+    margin:0 0 14px;
+    font-weight:500;
+  }
+  .quote-card .cn{
+    position:relative; z-index:1;
+    display:block;
+    color:var(--gold-soft);
+    font-size:16px;
+    line-height:1.7;
+  }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin-top:24px;
+  }
+  .dots{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .dot{
+    width:9px; height:9px; border-radius:50%;
+    background:#CBBFD5; cursor:pointer;
+    transition:all .2s ease;
+  }
+  .dot.active{ background:var(--purple); width:22px; border-radius:5px; }
+
+  .disclaimer{
+    max-width:920px;
+    margin:22px auto 0;
+    color:var(--muted);
+    font-size:12.5px;
+    line-height:1.6;
+    text-align:center;
+    padding:0 12px;
+  }
+
+  @media (max-width:780px){
+    .slide{ min-height:640px; }
+    .slide-inner{ padding:46px 26px 42px; }
+    h2{ font-size:31px; }
+    h3.cn{ font-size:19px; }
+    .lead{ font-size:17.5px; }
+    .sublead{ font-size:14.5px; }
+    li{ font-size:14.5px; }
+    .two-col,.benchmark-grid{ grid-template-columns:1fr; }
+    .benchmark{ min-height:auto; }
+    .amount{ font-size:32px; }
+    .quote-card p{ font-size:19px; }
+    .priority-row{ padding:12px 14px; }
+  }
+
+  @media print{
+    body{ background:white; }
+    .topbar,.nav,.disclaimer{ display:none; }
+    .carousel-shell{ max-width:none; }
+    .slide{
+      display:block !important;
+      width:1080px; height:1350px;
+      min-height:0; aspect-ratio:auto;
+      page-break-after:always;
+      box-shadow:none; border-radius:0;
+      border:none;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="topbar">
+    <div class="brandmark">
+      <div class="logo-dot">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L14 4V8C14 11.5 11.5 14.3 8 15C4.5 14.3 2 11.5 2 8V4L8 1Z" fill="#F3E2C0"/></svg>
+      </div>
+      <div>
+        <h1>Child Coverage Carousel</h1>
+        <span class="cn">儿童保障规划轮播 · #BuildWithJam</span>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="secondary" onclick="prevSlide()">← Previous</button>
+      <button onclick="nextSlide()">Next →</button>
+      <button class="secondary" onclick="window.print()">Save as PDF</button>
+    </div>
+  </div>
+
+  <div class="carousel-shell">
+
+    <!-- SLIDE 1 -->
+    <section class="slide active">
+      <div class="slide-number">01 / 08</div>
+      <div class="slide-inner">
+        <span class="kicker">Parents' Guide · 父母规划指南</span>
+        <h2>How Much Coverage<br>Should a Child Have?</h2>
+        <h3 class="cn">孩子应该有多少保障？</h3>
+
+        <div class="illustration">
+          <svg width="220" height="160" viewBox="0 0 220 160" fill="none">
+            <ellipse cx="110" cy="146" rx="90" ry="10" fill="#F1EBFA"/>
+            <path d="M110 20C140 20 165 45 165 78C165 112 140 138 110 138C80 138 55 112 55 78C55 45 80 20 110 20Z" fill="#F3E2C0" opacity="0.55"/>
+            <path d="M110 34C90 46 78 66 78 84C78 108 92 122 110 122C128 122 142 108 142 84C142 66 130 46 110 34Z" stroke="#754CA6" stroke-width="3.5" fill="white"/>
+            <path d="M92 82C92 82 100 96 110 96C120 96 128 82 128 82" stroke="#754CA6" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="95" cy="68" r="4.5" fill="#0A2D51"/>
+            <circle cx="125" cy="68" r="4.5" fill="#0A2D51"/>
+            <path d="M110 50V38M104 42L110 36L116 42" stroke="#D6A84B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <p class="lead">A simple benchmark to understand the amount, priority and purpose.</p>
+        <p class="sublead cn-sans">用简单的参考标准，了解保障金额、优先顺序与用途。</p>
+
+        <div class="highlight-box">
+          <strong class="label">Key Idea · 核心概念</strong>
+          <p class="lead">A child does not need income replacement, but the family may need financial support during treatment and caregiving.</p>
+          <p class="sublead cn-sans">孩子不需要收入替代，但在治疗与照顾期间，家庭可能需要额外的经济支援。</p>
+        </div>
+      </div>
+      <div class="brand-footer">#BuildWithJam</div>
+    </section>
+
+    <!-- SLIDE 2 -->
+    <section class="slide">
+      <div class="slide-number">02 / 08</div>
+      <div class="slide-inner">
+        <span class="kicker">Purpose · 保障目的</span>
+        <h2>What Are We<br>Protecting?</h2>
+        <h3 class="cn">我们真正要保障什么？</h3>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 4 15.5 4 9.5C4 6.5 6.5 4 9.5 4C10.9 4 12 4.8 12 4.8C12 4.8 13.1 4 14.5 4C17.5 4 20 6.5 20 9.5C20 15.5 12 21 12 21Z" stroke="#754CA6" stroke-width="2"/></svg></div>
+            <strong>Financial flexibility<span class="cn">财务弹性</span></strong>
+            <p>Funds for treatment, recovery and unexpected family expenses.</p>
+          </div>
+          <div class="card">
+            <div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#754CA6" stroke-width="2"/><path d="M12 8V12L15 14" stroke="#754CA6" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <strong>Time for caregiving<span class="cn">照顾孩子的时间</span></strong>
+            <p>Allows a parent to reduce work or take unpaid leave.</p>
+          </div>
+          <div class="card">
+            <div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#754CA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <strong>More treatment choices<span class="cn">更多治疗选择</span></strong>
+            <p>Provides options for private care, rehabilitation or overseas treatment.</p>
+          </div>
+          <div class="card">
+            <div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3L20 7V12C20 16.5 16.5 20.3 12 21C7.5 20.3 4 16.5 4 12V7L12 3Z" stroke="#754CA6" stroke-width="2"/></svg></div>
+            <strong>Family stability<span class="cn">家庭稳定</span></strong>
+            <p>Helps prevent a medical event from becoming a financial crisis.</p>
+          </div>
+        </div>
+      </div>
+      <div class="brand-footer">#BuildWithJam</div>
+    </section>
+
+    <!-- SLIDE 3 -->
+    <section class="slide">
+      <div class="slide-number">03 / 08</div>
+      <div class="slide-inner">
+        <span class="kicker">Death Coverage · 身故保障</span>
+        <h2>Suggested Benchmark</h2>
+        <h3 class="cn">建议参考金额</h3>
+
+        <div class="amount-band">
+          <span class="amount">S$50,000<span class="to">–</span>S$100,000</span>
+        </div>
+        <div class="gauge-row">
+          <span class="gauge-label">PRIORITY</span>
+          <div class="gauge-track"><div class="gauge-fill" style="width:22%"></div></div>
+          <span class="gauge-label">5 of 5</span>
+        </div>
+
+        <div class="highlight-box">
+          <strong class="label">Purpose · 用途</strong>
+          <ul>
+            <li>Funeral and immediate family expenses<span class="cn-sans">丧葬及家庭紧急开销</span></li>
+            <li>Allows parents time away from work to grieve<span class="cn-sans">让父母有时间停工处理与哀悼</span></li>
+            <li>Usually a lower priority because a child has no financial dependants<span class="cn-sans">孩子没有经济受养人，因此通常优先度较低</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="brand-footer">#BuildWithJam</div>
+    </section>
+
+    <!-- SLIDE 4 -->
+    <section class="slide">
+      <div class="slide-number">04 / 08</div>
+      <div class="slide-inner">
+        <span class="kicker">Early Critical Illness · 早期重疾</span>
+        <h2>Suggested Benchmark</h2>
+        <h3 class="cn">建议参考金额</h3>
+
+        <div class="amount-band">
+          <span class="amount">S$100,000<span class="to">–</span>S$300,000</span>
+        </div>
+        <div class="gauge-row">
+          <span class="gauge-label">PRIORITY</span>
+          <div class="gauge-track"><div class="gauge-fill" style="width:78%"></div></div>
+          <span class="gauge-label">2 of 5</span>
+        </div>
+
+        <div class="highlight-box">
+          <strong class="label">Purpose · 用途</strong>
+          <ul>
+            <li>Payout upon diagnosis of a covered early-stage illness<span class="cn-sans">确诊受保的早期重疾后可获得赔付</span></li>
+            <li>Supports early treatment and recovery<span class="cn-sans">支援早期治疗与康复</span></li>
+            <li>Helps replace a parent's reduced income during caregiving<span class="cn-sans">补贴父母因照顾孩子而减少的收入</span></li>
+            <li>Provides funds before the illness becomes more severe<span class="cn-sans">在病情恶化前提供资金支援</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="brand-footer">#BuildWithJam</div>
+    </section>
+
+    <!-- SLIDE 5 -->
+    <section class="slide">
+      <div class="slide-number">05 / 08</div>
+      <div class="slide-inner">
+        <span class="kicker">Critical Illness · 严重疾病</span>
+        <h2>Suggested Benchmark</h2>
+        <h3 class="cn">建议参考金额</h3>
+
+        <div class="amount-band">
+          <span class="amount">S$100,000<span class="to">–</span>S$300,000</span>
+        </div>
+        <div class="gauge-row">
+          <span class="gauge-label">PRIORITY</span>
+          <div class="gauge-track"><div class="gauge-fill" style="width:60%"></div></div>
+          <span class="gauge-label">3 of 5</span>
+        </div>
+
+        <div class="highlight-box">
+          <strong class="label">Purpose · 用途</strong>
+          <ul>
+            <li>Provides a lump-sum payout for covered major illnesses<span class="cn-sans">确诊受保严重疾病后获得一笔过赔付</span></li>
+            <li>Supports long-term treatment, rehabilitation and recovery<span class="cn-sans">支援长期治疗、康复及复原</span></li>
+            <li>Offsets caregiving costs and lost parental income<span class="cn-sans">补贴照顾开销及父母收入损失</span></li>
+            <li>Gives the family more financial choices during a difficult period<span class="cn-sans">在困难时期给予家庭更多财务选择</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="brand-footer">#BuildWithJam</div>
+    </section>
+
+    <!-- SLIDE 6 -->
+    <section class="slide">
+      <div class="slide-number">06 / 08</div>
+      <div class="slide-inner">
+        <span class="kicker">What Affects the Amount · 影响因素</span>
+        <h2>What Affects the<br>Coverage Amount?</h2>
+        <h3 class="cn">什么因素会影响保障金额？</h3>
+
+        <p class="sublead cn-sans" style="margin-bottom:6px;">There isn't a one-size-fits-all amount — it depends on your family's situation.<br>保障金额没有标准答案，取决于每个家庭的需要。</p>
+
+        <div class="two-col" style="margin-top:14px;">
+          <div class="card">
+            <div class="icon-wrap">👨‍👩‍👧</div>
+            <strong>One parent may stop working<span class="cn">若其中一位父母需要暂停工作</span></strong>
+            <p>A larger payout can help replace the temporary loss of income. 较高的保障可弥补因照顾孩子而减少的收入。</p>
+          </div>
+          <div class="card">
+            <div class="icon-wrap">🏥</div>
+            <strong>Prefer private healthcare<span class="cn">偏向选择私人医疗</span></strong>
+            <p>Private medical treatment may cost significantly more. 私人医疗费用通常较高，因此需要较高保障。</p>
+          </div>
+          <div class="card">
+            <div class="icon-wrap">✈️</div>
+            <strong>Overseas treatment options<span class="cn">希望拥有海外治疗选择</span></strong>
+            <p>Additional funds provide flexibility for specialised or overseas treatment. 额外保障可为海外或专科治疗提供更多选择。</p>
+          </div>
+          <div class="card">
+            <div class="icon-wrap">💰</div>
+            <strong>Dual income family<span class="cn">家庭主要依赖双薪收入</span></strong>
+            <p>If one parent stops working, household income is affected more. 若其中一位父母暂停工作，家庭收入可能受到较大影响。</p>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top:16px;">
+          <strong class="label">Key Takeaway · 重点提醒</strong>
+          <p class="lead" style="font-size:18px;">The right amount isn't the highest amount.</p>
+          <p class="sublead cn-sans">It's the amount that lets your family focus on your child's recovery without unnecessary financial stress.<br>最适合的保障，不一定是最高的保障，而是在孩子需要治疗时，让家庭能够专注照顾，而不是担心经济压力。</p>
+        </div>
+      </div>
+      <div class="brand-footer">#BuildWithJam</div>
+    </section>
+
+    <!-- SLIDE 7 -->
+    <section class="slide">
+      <div class="slide-number">07 / 08</div>
+      <div class="slide-inner">
+        <span class="kicker">Priority Order · 保障优先顺序</span>
+        <h2>What Should<br>Come First?</h2>
+        <h3 class="cn">哪些保障应优先？</h3>
+
+        <div class="priority">
+          <div class="priority-row"><span class="num">1</span><div class="txt"><strong>Hospitalisation Plan</strong><span class="cn">住院医疗保障</span></div></div>
+          <div class="priority-row"><span class="num">2</span><div class="txt"><strong>Early Critical Illness</strong><span class="cn">早期严重疾病保障</span></div></div>
+          <div class="priority-row"><span class="num">3</span><div class="txt"><strong>Critical Illness</strong><span class="cn">严重疾病保障</span></div></div>
+          <div class="priority-row"><span class="num">4</span><div class="txt"><strong>Personal Accident</strong><span class="cn">个人意外保障</span></div></div>
+          <div class="priority-row"><span class="num">5</span><div class="txt"><strong>Death Coverage</strong><span class="cn">身故保障</span></div></div>
+        </div>
+      </div>
+      <div class="brand-footer">#BuildWithJam</div>
+    </section>
+
+    <!-- SLIDE 8 -->
+    <section class="slide">
+      <div class="slide-number">08 / 08</div>
+      <div class="slide-inner">
+        <span class="kicker">Final Thought · 最后提醒</span>
+        <h2>Coverage Is<br>About Choices</h2>
+        <h3 class="cn">保障的意义，是保留选择</h3>
+
+        <div class="quote-card">
+          <p>The goal is not to insure a child for the highest amount. The goal is to ensure that an illness does not become a financial crisis for the family.</p>
+          <span class="cn">重点不是为孩子购买最高的保障金额，而是确保疾病不会演变成家庭的财务危机。</span>
+        </div>
+
+        <p class="sublead cn-sans" style="margin-top:20px;">Review the child's coverage together with the parents' own protection — family financial security still depends heavily on the parents' income.<br>同时也要检视父母本身的保障，因为家庭财务稳定仍然高度依赖父母的收入。</p>
+      </div>
+      <div class="brand-footer">#BuildWithJam</div>
+    </section>
+
+  </div>
+
+  <div class="nav">
+    <button class="secondary" onclick="prevSlide()">←</button>
+    <div class="dots" id="dots"></div>
+    <button onclick="nextSlide()">→</button>
+  </div>
+
+  <div class="cta-band">
+    <h3>Want help planning your child's coverage?</h3>
+    <p>Book a complimentary session and we'll map out the right amount and priority for your family — no guesswork, no pressure.</p>
+    <a class="btn" href="#">Book a session to plan →</a>
+  </div>
+
+  <div class="disclaimer">
+    General educational benchmark only. Actual suitable coverage depends on family needs, affordability, existing policies and policy terms.
+    <br>以上仅为一般教育参考。实际所需保障应根据家庭需要、预算、现有保单及条款而定。
+  </div>
+</div>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const dotsWrap = document.getElementById('dots');
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => showSlide(i);
+    dotsWrap.appendChild(dot);
+  });
+
+  const dots = [...document.querySelectorAll('.dot')];
+
+  function showSlide(index){
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+  }
+
+  function nextSlide(){ showSlide(current + 1); }
+  function prevSlide(){ showSlide(current - 1); }
+
+  document.addEventListener('keydown', e => {
+    if(e.key === 'ArrowRight') nextSlide();
+    if(e.key === 'ArrowLeft') prevSlide();
+  });
+</script>
+</body>
+</html>
