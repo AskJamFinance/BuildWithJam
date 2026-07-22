@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
     --line:#E6DEF1;
     --grad: linear-gradient(165deg, #0A2D51 0%, #754CA6 62%, #9170B8 100%);
   }
-
+ 
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
@@ -29,16 +30,16 @@
     background:#E8E1F0;
     color:var(--ink);
   }
-
+ 
   .cn{ font-family:"Noto Serif SC","Fraunces",serif; }
   .cn-sans{ font-family:"Noto Sans SC","Inter",sans-serif; }
-
+ 
   .page-wrap{
     max-width:1180px;
     margin:0 auto;
     padding:28px 18px 70px;
   }
-
+ 
   .topbar{
     display:flex;
     justify-content:space-between;
@@ -47,20 +48,20 @@
     margin-bottom:22px;
     flex-wrap:wrap;
   }
-
+ 
   .topbar .brandmark{
     display:flex;
     align-items:center;
     gap:10px;
   }
-
+ 
   .brandmark .logo-dot{
     width:34px;height:34px;border-radius:50%;
     background:var(--grad);
     display:grid;place-items:center;
     flex:0 0 auto;
   }
-
+ 
   .brandmark h1{
     margin:0;
     font-family:"Fraunces",serif;
@@ -69,16 +70,16 @@
     color:var(--navy);
     letter-spacing:.2px;
   }
-
+ 
   .brandmark span{
     display:block;
     font-size:12px;
     color:var(--muted);
     font-weight:500;
   }
-
+ 
   .actions{ display:flex; gap:10px; flex-wrap:wrap; }
-
+ 
   button{
     border:0;
     border-radius:999px;
@@ -91,13 +92,13 @@
     transition:transform .15s ease, box-shadow .15s ease;
   }
   button:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(10,45,81,.25); }
-
+ 
   button.secondary{
     background:white;
     color:var(--navy);
     border:1.5px solid var(--line);
   }
-
+ 
   .cta-band{
     max-width:920px;
     margin:32px auto 0;
@@ -135,19 +136,19 @@
     transition:transform .15s ease;
   }
   .cta-band a.btn:hover{ transform:translateY(-2px); }
-
+ 
   @media (max-width:780px){
     .cta-band{ padding:32px 24px; margin:24px 12px 0; }
     .cta-band h3{ font-size:21px; }
   }
-
+ 
   .carousel-shell{
     position:relative;
     width:100%;
     max-width:920px;
     margin:0 auto;
   }
-
+ 
   .slide{
     width:100%;
     aspect-ratio:4/5;
@@ -160,9 +161,9 @@
     position:relative;
     border:1px solid rgba(117,76,166,.08);
   }
-
+ 
   .slide.active{display:block;}
-
+ 
   .slide-inner{
     height:100%;
     padding:56px 54px 46px;
@@ -170,7 +171,7 @@
     flex-direction:column;
     position:relative;
   }
-
+ 
   .slide-number{
     position:absolute;
     top:26px;
@@ -181,7 +182,7 @@
     letter-spacing:1px;
     z-index:3;
   }
-
+ 
   .brand-footer{
     position:absolute;
     left:32px;
@@ -195,14 +196,14 @@
     color:var(--purple);
     z-index:3;
   }
-
+ 
   .brand-footer::before{
     content:"";
     width:7px;height:7px;border-radius:50%;
     background:var(--gold);
     display:inline-block;
   }
-
+ 
   .kicker{
     display:inline-flex;
     align-items:center;
@@ -217,13 +218,13 @@
     margin-bottom:22px;
     letter-spacing:.2px;
   }
-
+ 
   .kicker::before{
     content:"";
     width:6px;height:6px;border-radius:50%;
     background:var(--purple);
   }
-
+ 
   h2{
     margin:0 0 8px;
     font-family:"Fraunces",serif;
@@ -233,7 +234,7 @@
     color:var(--navy);
     letter-spacing:-.3px;
   }
-
+ 
   h3.cn{
     margin:0 0 18px;
     font-size:24px;
@@ -241,14 +242,14 @@
     color:var(--purple);
     font-weight:700;
   }
-
+ 
   .lead{
     font-size:21px;
     line-height:1.5;
     margin:4px 0;
     color:var(--ink);
   }
-
+ 
   .sublead{
     color:var(--muted);
     font-size:16.5px;
@@ -256,14 +257,40 @@
     margin:6px 0 0;
   }
   .sublead.cn-sans{ font-size:16px; }
-
+ 
   .illustration{
     display:flex;
     justify-content:center;
     margin:6px 0 6px;
   }
   .illustration svg{ display:block; }
-
+ 
+  .photo-frame{
+    width:220px;
+    height:170px;
+    border-radius:20px;
+    background:var(--lavender);
+    border:2px dashed var(--purple-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .photo-placeholder-note{
+    text-align:center;
+    padding:16px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--purple);
+    line-height:1.5;
+  }
+ 
   .highlight-box{
     margin-top:22px;
     padding:24px 26px;
@@ -281,14 +308,14 @@
     letter-spacing:.6px;
     font-weight:800;
   }
-
+ 
   .two-col{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:16px;
     margin-top:18px;
   }
-
+ 
   .card{
     padding:20px 20px 22px;
     border-radius:20px;
@@ -302,7 +329,7 @@
     display:grid;place-items:center;
     margin-bottom:12px;
   }
-
+ 
   .card strong{
     display:block;
     margin-bottom:6px;
@@ -311,14 +338,14 @@
     font-weight:700;
   }
   .card strong .cn{ display:block; font-size:14px; color:var(--purple); font-weight:600; margin-top:2px;}
-
+ 
   .card p{
     margin:0;
     font-size:14.5px;
     line-height:1.5;
     color:var(--muted);
   }
-
+ 
   ul{ margin:12px 0 0; padding-left:0; list-style:none; }
   li{
     margin:12px 0;
@@ -338,7 +365,7 @@
     transform:rotate(45deg);
   }
   li .cn-sans{ display:block; color:var(--muted); font-size:14.5px; margin-top:2px; }
-
+ 
   .amount-band{
     display:flex;
     align-items:baseline;
@@ -354,7 +381,7 @@
     font-weight:600;
   }
   .amount .to{ color:var(--gold); font-size:26px; margin:0 6px; }
-
+ 
   .gauge-row{
     display:flex;
     align-items:center;
@@ -379,7 +406,7 @@
     color:var(--purple);
     white-space:nowrap;
   }
-
+ 
   .benchmark-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -402,7 +429,66 @@
   .benchmark.basic{ background:linear-gradient(160deg,#0A2D51,#1c4a7d); }
   .benchmark.moderate{ background:linear-gradient(160deg,#5b3585,#754CA6); }
   .benchmark.higher{ background:linear-gradient(160deg,#8a4a3d,#c07a4b); }
-
+ 
+  .benchmark{ cursor:pointer; border:2.5px solid transparent; transition:transform .15s ease, border-color .15s ease; }
+  .benchmark:hover{ transform:translateY(-2px); }
+  .benchmark.selected{ border-color:var(--gold); }
+  .benchmark .tap-hint{
+    position:relative; z-index:1;
+    display:inline-block; margin-top:10px;
+    font-size:11.5px; font-weight:700; letter-spacing:.3px; text-transform:uppercase;
+    color:rgba(255,255,255,.8);
+  }
+  .benchmark.selected .tap-hint{ color:var(--gold); }
+  .benchmark.selected .tap-hint::before{ content:"✓ Selected · "; }
+ 
+  .benchmark .income-line{
+    margin-top:12px !important;
+    padding-top:10px;
+    border-top:1px solid rgba(255,255,255,.25);
+    font-size:12.5px !important;
+    opacity:.9;
+  }
+  .benchmark .income-line .cn-sans{ display:block; margin-top:2px; opacity:.85; }
+ 
+  .calc-panel{
+    margin-top:20px;
+    padding:22px 24px;
+    border-radius:20px;
+    background:white;
+    border:1.5px solid var(--line);
+    display:none;
+  }
+  .calc-field{ margin:14px 0; }
+  .calc-field label{
+    display:block; font-size:13.5px; font-weight:700; color:var(--navy); margin-bottom:6px;
+  }
+  .calc-field input{
+    width:100%; padding:12px 14px; border-radius:12px; border:1.5px solid var(--line);
+    font-size:16px; font-family:"Inter",sans-serif; color:var(--ink); background:var(--cream);
+  }
+  .calc-field input:focus{ outline:2px solid var(--purple-soft); border-color:var(--purple); }
+  .calc-btn{
+    width:100%; margin-top:8px; padding:14px 18px; border:0; border-radius:999px;
+    background:var(--grad); color:white; font-weight:700; font-size:15.5px; cursor:pointer;
+  }
+  .calc-btn:hover{ opacity:.94; }
+  .calc-results{ margin-top:18px; }
+  .calc-result-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:10px 0; border-bottom:1px solid var(--line); font-size:14.5px; color:var(--ink);
+  }
+  .calc-result-row:last-of-type{ border-bottom:none; }
+  .calc-result-row strong{ color:var(--navy); }
+  .calc-result-row .gap-amt{ font-weight:800; color:var(--gold); }
+  .calc-result-row .gap-amt.zero{ color:#327a5a; }
+  .calc-total{
+    margin-top:14px; padding:16px 18px; border-radius:14px; background:var(--lavender);
+    display:flex; justify-content:space-between; align-items:center; font-weight:800; color:var(--navy);
+  }
+  .calc-total .val{ font-family:"Fraunces",serif; font-size:22px; color:var(--purple); }
+  .calc-note{ margin-top:14px; font-size:13px; color:var(--muted); line-height:1.5; }
+ 
   .benchmark h4{
     margin:0 0 10px;
     font-size:19px;
@@ -417,7 +503,7 @@
     position:relative; z-index:1;
     opacity:.95;
   }
-
+ 
   .priority{
     display:flex;
     flex-direction:column;
@@ -454,7 +540,7 @@
     font-size:14px;
     color:var(--muted);
   }
-
+ 
   .quote-card{
     margin:auto 0 0;
     padding:32px 30px;
@@ -488,7 +574,7 @@
     font-size:16px;
     line-height:1.7;
   }
-
+ 
   .nav{
     display:flex;
     align-items:center;
@@ -503,7 +589,7 @@
     transition:all .2s ease;
   }
   .dot.active{ background:var(--purple); width:22px; border-radius:5px; }
-
+ 
   .disclaimer{
     max-width:920px;
     margin:22px auto 0;
@@ -513,7 +599,7 @@
     text-align:center;
     padding:0 12px;
   }
-
+ 
   @media (max-width:780px){
     .slide{ min-height:640px; }
     .slide-inner{ padding:46px 26px 42px; }
@@ -528,7 +614,7 @@
     .quote-card p{ font-size:19px; }
     .priority-row{ padding:12px 14px; }
   }
-
+ 
   @media print{
     body{ background:white; }
     .topbar,.nav,.disclaimer{ display:none; }
@@ -546,49 +632,61 @@
 </head>
 <body>
 <div class="page-wrap">
-
+ 
   <div class="topbar">
     <div class="brandmark">
       <div class="logo-dot">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L14 4V8C14 11.5 11.5 14.3 8 15C4.5 14.3 2 11.5 2 8V4L8 1Z" fill="#F3E2C0"/></svg>
       </div>
       <div>
-        <h1>Child Coverage Carousel</h1>
+        <h1>How Much Coverage Should a Child Have?</h1>
         <span class="cn">儿童保障规划轮播 · #BuildWithJam</span>
       </div>
     </div>
     <div class="actions">
       <button class="secondary" onclick="prevSlide()">← Previous</button>
       <button onclick="nextSlide()">Next →</button>
-      <button class="secondary" onclick="window.print()">Save as PDF</button>
     </div>
   </div>
-
+ 
   <div class="carousel-shell">
-
+ 
     <!-- SLIDE 1 -->
     <section class="slide active">
-      <div class="slide-number">01 / 08</div>
+      <div class="slide-number">01 / 09</div>
       <div class="slide-inner">
         <span class="kicker">Parents' Guide · 父母规划指南</span>
         <h2>How Much Coverage<br>Should a Child Have?</h2>
         <h3 class="cn">孩子应该有多少保障？</h3>
-
+ 
         <div class="illustration">
-          <svg width="220" height="160" viewBox="0 0 220 160" fill="none">
-            <ellipse cx="110" cy="146" rx="90" ry="10" fill="#F1EBFA"/>
-            <path d="M110 20C140 20 165 45 165 78C165 112 140 138 110 138C80 138 55 112 55 78C55 45 80 20 110 20Z" fill="#F3E2C0" opacity="0.55"/>
-            <path d="M110 34C90 46 78 66 78 84C78 108 92 122 110 122C128 122 142 108 142 84C142 66 130 46 110 34Z" stroke="#754CA6" stroke-width="3.5" fill="white"/>
-            <path d="M92 82C92 82 100 96 110 96C120 96 128 82 128 82" stroke="#754CA6" stroke-width="3.5" stroke-linecap="round"/>
-            <circle cx="95" cy="68" r="4.5" fill="#0A2D51"/>
-            <circle cx="125" cy="68" r="4.5" fill="#0A2D51"/>
-            <path d="M110 50V38M104 42L110 36L116 42" stroke="#D6A84B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <div class="photo-frame">
+            <svg viewBox="0 0 220 170" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+              <rect x="0" y="0" width="220" height="170" fill="#F1EBFA"/>
+              <ellipse cx="110" cy="152" rx="95" ry="12" fill="#E6DEF1"/>
+ 
+              <!-- parent -->
+              <circle cx="82" cy="60" r="22" fill="#754CA6"/>
+              <path d="M50 150C50 112 63 92 82 92C101 92 114 112 114 150Z" fill="#754CA6"/>
+ 
+              <!-- child -->
+              <circle cx="128" cy="82" r="15" fill="#D6A84B"/>
+              <path d="M105 150C105 122 115 108 128 108C141 108 151 122 151 150Z" fill="#D6A84B"/>
+ 
+              <!-- linked hands -->
+              <circle cx="104" cy="118" r="5" fill="#0A2D51"/>
+ 
+              <!-- warmth accents -->
+              <circle cx="40" cy="35" r="4" fill="#D6A84B" opacity="0.6"/>
+              <circle cx="185" cy="45" r="6" fill="#754CA6" opacity="0.35"/>
+              <circle cx="170" cy="25" r="3" fill="#D6A84B" opacity="0.5"/>
+            </svg>
+          </div>
         </div>
-
+ 
         <p class="lead">A simple benchmark to understand the amount, priority and purpose.</p>
         <p class="sublead cn-sans">用简单的参考标准，了解保障金额、优先顺序与用途。</p>
-
+ 
         <div class="highlight-box">
           <strong class="label">Key Idea · 核心概念</strong>
           <p class="lead">A child does not need income replacement, but the family may need financial support during treatment and caregiving.</p>
@@ -597,15 +695,15 @@
       </div>
       <div class="brand-footer">#BuildWithJam</div>
     </section>
-
+ 
     <!-- SLIDE 2 -->
     <section class="slide">
-      <div class="slide-number">02 / 08</div>
+      <div class="slide-number">02 / 09</div>
       <div class="slide-inner">
         <span class="kicker">Purpose · 保障目的</span>
         <h2>What Are We<br>Protecting?</h2>
         <h3 class="cn">我们真正要保障什么？</h3>
-
+ 
         <div class="two-col">
           <div class="card">
             <div class="icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 4 15.5 4 9.5C4 6.5 6.5 4 9.5 4C10.9 4 12 4.8 12 4.8C12 4.8 13.1 4 14.5 4C17.5 4 20 6.5 20 9.5C20 15.5 12 21 12 21Z" stroke="#754CA6" stroke-width="2"/></svg></div>
@@ -631,15 +729,15 @@
       </div>
       <div class="brand-footer">#BuildWithJam</div>
     </section>
-
+ 
     <!-- SLIDE 3 -->
     <section class="slide">
-      <div class="slide-number">03 / 08</div>
+      <div class="slide-number">03 / 09</div>
       <div class="slide-inner">
         <span class="kicker">Death Coverage · 身故保障</span>
         <h2>Suggested Benchmark</h2>
         <h3 class="cn">建议参考金额</h3>
-
+ 
         <div class="amount-band">
           <span class="amount">S$50,000<span class="to">–</span>S$100,000</span>
         </div>
@@ -648,7 +746,7 @@
           <div class="gauge-track"><div class="gauge-fill" style="width:22%"></div></div>
           <span class="gauge-label">5 of 5</span>
         </div>
-
+ 
         <div class="highlight-box">
           <strong class="label">Purpose · 用途</strong>
           <ul>
@@ -660,15 +758,15 @@
       </div>
       <div class="brand-footer">#BuildWithJam</div>
     </section>
-
+ 
     <!-- SLIDE 4 -->
     <section class="slide">
-      <div class="slide-number">04 / 08</div>
+      <div class="slide-number">04 / 09</div>
       <div class="slide-inner">
         <span class="kicker">Early Critical Illness · 早期重疾</span>
         <h2>Suggested Benchmark</h2>
         <h3 class="cn">建议参考金额</h3>
-
+ 
         <div class="amount-band">
           <span class="amount">S$100,000<span class="to">–</span>S$300,000</span>
         </div>
@@ -677,7 +775,7 @@
           <div class="gauge-track"><div class="gauge-fill" style="width:78%"></div></div>
           <span class="gauge-label">2 of 5</span>
         </div>
-
+ 
         <div class="highlight-box">
           <strong class="label">Purpose · 用途</strong>
           <ul>
@@ -690,15 +788,15 @@
       </div>
       <div class="brand-footer">#BuildWithJam</div>
     </section>
-
+ 
     <!-- SLIDE 5 -->
     <section class="slide">
-      <div class="slide-number">05 / 08</div>
+      <div class="slide-number">05 / 09</div>
       <div class="slide-inner">
         <span class="kicker">Critical Illness · 严重疾病</span>
         <h2>Suggested Benchmark</h2>
         <h3 class="cn">建议参考金额</h3>
-
+ 
         <div class="amount-band">
           <span class="amount">S$100,000<span class="to">–</span>S$300,000</span>
         </div>
@@ -707,7 +805,7 @@
           <div class="gauge-track"><div class="gauge-fill" style="width:60%"></div></div>
           <span class="gauge-label">3 of 5</span>
         </div>
-
+ 
         <div class="highlight-box">
           <strong class="label">Purpose · 用途</strong>
           <ul>
@@ -720,17 +818,17 @@
       </div>
       <div class="brand-footer">#BuildWithJam</div>
     </section>
-
+ 
     <!-- SLIDE 6 -->
     <section class="slide">
-      <div class="slide-number">06 / 08</div>
+      <div class="slide-number">06 / 09</div>
       <div class="slide-inner">
         <span class="kicker">What Affects the Amount · 影响因素</span>
         <h2>What Affects the<br>Coverage Amount?</h2>
         <h3 class="cn">什么因素会影响保障金额？</h3>
-
+ 
         <p class="sublead cn-sans" style="margin-bottom:6px;">There isn't a one-size-fits-all amount — it depends on your family's situation.<br>保障金额没有标准答案，取决于每个家庭的需要。</p>
-
+ 
         <div class="two-col" style="margin-top:14px;">
           <div class="card">
             <div class="icon-wrap">👨‍👩‍👧</div>
@@ -753,7 +851,7 @@
             <p>If one parent stops working, household income is affected more. 若其中一位父母暂停工作，家庭收入可能受到较大影响。</p>
           </div>
         </div>
-
+ 
         <div class="highlight-box" style="margin-top:16px;">
           <strong class="label">Key Takeaway · 重点提醒</strong>
           <p class="lead" style="font-size:18px;">The right amount isn't the highest amount.</p>
@@ -762,15 +860,15 @@
       </div>
       <div class="brand-footer">#BuildWithJam</div>
     </section>
-
+ 
     <!-- SLIDE 7 -->
     <section class="slide">
-      <div class="slide-number">07 / 08</div>
+      <div class="slide-number">07 / 09</div>
       <div class="slide-inner">
         <span class="kicker">Priority Order · 保障优先顺序</span>
         <h2>What Should<br>Come First?</h2>
         <h3 class="cn">哪些保障应优先？</h3>
-
+ 
         <div class="priority">
           <div class="priority-row"><span class="num">1</span><div class="txt"><strong>Hospitalisation Plan</strong><span class="cn">住院医疗保障</span></div></div>
           <div class="priority-row"><span class="num">2</span><div class="txt"><strong>Early Critical Illness</strong><span class="cn">早期严重疾病保障</span></div></div>
@@ -781,72 +879,186 @@
       </div>
       <div class="brand-footer">#BuildWithJam</div>
     </section>
-
+ 
     <!-- SLIDE 8 -->
     <section class="slide">
-      <div class="slide-number">08 / 08</div>
+      <div class="slide-number">08 / 09</div>
+      <div class="slide-inner" style="overflow-y:auto;">
+        <span class="kicker">Sample Tiers · 参考等级</span>
+        <h2 style="font-size:32px;">Tap a Tier to<br>Check Your Gap</h2>
+        <h3 class="cn">点选等级，查看差距</h3>
+        <p class="sublead cn-sans" style="margin-bottom:10px;">Tap Basic, Moderate or Higher, then enter your current coverage to see your shortfall.<br>点选基础型、均衡型或进阶型，再输入现有保障以查看差距。</p>
+ 
+        <div class="benchmark-grid" id="tier-grid">
+          <div class="benchmark basic" id="tier-basic" onclick="selectTier('basic')" role="button" tabindex="0">
+            <h4>Basic<span class="cn">基础型</span></h4>
+            <p>Single-income family, straightforward needs.</p>
+            <p>Death: S$50,000</p>
+            <p>Early CI: S$100,000</p>
+            <p>CI: S$150,000</p>
+            <p class="income-line">Household income below ~S$6,000/mth<span class="cn-sans">家庭月收入约S$6,000以下</span></p>
+            <span class="tap-hint">Tap to select</span>
+          </div>
+          <div class="benchmark moderate" id="tier-moderate" onclick="selectTier('moderate')" role="button" tabindex="0">
+            <h4>Moderate<span class="cn">均衡型</span></h4>
+            <p>Dual-income family wanting flexibility.</p>
+            <p>Death: S$75,000</p>
+            <p>Early CI: S$200,000</p>
+            <p>CI: S$250,000</p>
+            <p class="income-line">Household income ~S$6,000–S$12,000/mth<span class="cn-sans">家庭月收入约S$6,000至S$12,000</span></p>
+            <span class="tap-hint">Tap to select</span>
+          </div>
+          <div class="benchmark higher" id="tier-higher" onclick="selectTier('higher')" role="button" tabindex="0">
+            <h4>Higher<span class="cn">进阶型</span></h4>
+            <p>Private or overseas treatment options.</p>
+            <p>Death: S$100,000</p>
+            <p>Early CI: S$300,000</p>
+            <p>CI: S$350,000</p>
+            <p class="income-line">Household income above ~S$12,000/mth<span class="cn-sans">家庭月收入约S$12,000以上</span></p>
+            <span class="tap-hint">Tap to select</span>
+          </div>
+        </div>
+ 
+        <div class="calc-panel" id="calc-panel">
+          <strong class="label">Your Current Coverage · 现有保障 — <span id="calc-tier-label">Basic</span> selected</strong>
+ 
+          <div class="calc-field">
+            <label for="input-death">Death / Disability (S$)</label>
+            <input type="number" id="input-death" min="0" placeholder="0" inputmode="numeric">
+          </div>
+          <div class="calc-field">
+            <label for="input-earlyci">Early Critical Illness (S$)</label>
+            <input type="number" id="input-earlyci" min="0" placeholder="0" inputmode="numeric">
+          </div>
+          <div class="calc-field">
+            <label for="input-ci">Critical Illness (S$)</label>
+            <input type="number" id="input-ci" min="0" placeholder="0" inputmode="numeric">
+          </div>
+ 
+          <button class="calc-btn" onclick="calculateShortfall()">Calculate my shortfall →</button>
+ 
+          <div class="calc-results" id="calc-results"></div>
+        </div>
+      </div>
+      <div class="brand-footer">#BuildWithJam</div>
+    </section>
+ 
+    <!-- SLIDE 9 -->
+    <section class="slide">
+      <div class="slide-number">09 / 09</div>
       <div class="slide-inner">
         <span class="kicker">Final Thought · 最后提醒</span>
         <h2>Coverage Is<br>About Choices</h2>
         <h3 class="cn">保障的意义，是保留选择</h3>
-
+ 
         <div class="quote-card">
           <p>The goal is not to insure a child for the highest amount. The goal is to ensure that an illness does not become a financial crisis for the family.</p>
           <span class="cn">重点不是为孩子购买最高的保障金额，而是确保疾病不会演变成家庭的财务危机。</span>
         </div>
-
+ 
         <p class="sublead cn-sans" style="margin-top:20px;">Review the child's coverage together with the parents' own protection — family financial security still depends heavily on the parents' income.<br>同时也要检视父母本身的保障，因为家庭财务稳定仍然高度依赖父母的收入。</p>
       </div>
       <div class="brand-footer">#BuildWithJam</div>
     </section>
-
+ 
   </div>
-
+ 
   <div class="nav">
     <button class="secondary" onclick="prevSlide()">←</button>
     <div class="dots" id="dots"></div>
     <button onclick="nextSlide()">→</button>
   </div>
-
+ 
   <div class="cta-band">
     <h3>Want help planning your child's coverage?</h3>
     <p>Book a complimentary session and we'll map out the right amount and priority for your family — no guesswork, no pressure.</p>
     <a class="btn" href="#">Book a session to plan →</a>
   </div>
-
+ 
   <div class="disclaimer">
     General educational benchmark only. Actual suitable coverage depends on family needs, affordability, existing policies and policy terms.
     <br>以上仅为一般教育参考。实际所需保障应根据家庭需要、预算、现有保单及条款而定。
   </div>
 </div>
-
+ 
 <script>
   const slides = [...document.querySelectorAll('.slide')];
   const dotsWrap = document.getElementById('dots');
   let current = 0;
-
+ 
   slides.forEach((_, i) => {
     const dot = document.createElement('div');
     dot.className = 'dot' + (i === 0 ? ' active' : '');
     dot.onclick = () => showSlide(i);
     dotsWrap.appendChild(dot);
   });
-
+ 
   const dots = [...document.querySelectorAll('.dot')];
-
+ 
   function showSlide(index){
     current = (index + slides.length) % slides.length;
     slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
     dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
   }
-
+ 
   function nextSlide(){ showSlide(current + 1); }
   function prevSlide(){ showSlide(current - 1); }
-
+ 
   document.addEventListener('keydown', e => {
     if(e.key === 'ArrowRight') nextSlide();
     if(e.key === 'ArrowLeft') prevSlide();
   });
+ 
+  // --- Coverage tier calculator ---
+  const tierTargets = {
+    basic:    { death:50000,  earlyci:100000, ci:150000, label:'Basic' },
+    moderate: { death:75000,  earlyci:200000, ci:250000, label:'Moderate' },
+    higher:   { death:100000, earlyci:300000, ci:350000, label:'Higher' }
+  };
+  let selectedTier = null;
+ 
+  function selectTier(tier){
+    selectedTier = tier;
+    document.querySelectorAll('.benchmark').forEach(el => el.classList.remove('selected'));
+    document.getElementById('tier-' + tier).classList.add('selected');
+    document.getElementById('calc-tier-label').textContent = tierTargets[tier].label;
+    document.getElementById('calc-panel').style.display = 'block';
+    document.getElementById('calc-results').innerHTML = '';
+  }
+ 
+  function formatSGD(n){
+    return 'S$' + Math.round(n).toLocaleString('en-SG');
+  }
+ 
+  function calculateShortfall(){
+    if(!selectedTier){
+      alert('Please tap a tier (Basic, Moderate or Higher) first.');
+      return;
+    }
+    const target = tierTargets[selectedTier];
+    const curDeath  = parseFloat(document.getElementById('input-death').value)   || 0;
+    const curEarly  = parseFloat(document.getElementById('input-earlyci').value) || 0;
+    const curCI     = parseFloat(document.getElementById('input-ci').value)      || 0;
+ 
+    const gaps = [
+      { label:'Death / Disability', shortfall: Math.max(target.death   - curDeath, 0) },
+      { label:'Early Critical Illness', shortfall: Math.max(target.earlyci - curEarly, 0) },
+      { label:'Critical Illness', shortfall: Math.max(target.ci      - curCI, 0) }
+    ];
+ 
+    let html = gaps.map(g => `
+      <div class="calc-result-row">
+        <strong>${g.label}</strong>
+        <span class="gap-amt ${g.shortfall === 0 ? 'zero' : ''}">${g.shortfall === 0 ? 'On track' : formatSGD(g.shortfall) + ' short'}</span>
+      </div>
+    `).join('');
+ 
+    html += `
+      <p class="calc-note">Based on the ${target.label} tier benchmark. This is a general estimate — actual needs depend on your family's situation and existing policies.<br>以上仅根据${target.label}等级作一般估算，实际所需仍取决于家庭状况及现有保单。</p>
+    `;
+ 
+    document.getElementById('calc-results').innerHTML = html;
+  }
 </script>
 </body>
 </html>
