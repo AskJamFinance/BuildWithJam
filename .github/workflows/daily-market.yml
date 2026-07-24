@@ -1,0 +1,94 @@
+name: BuildWithJam Daily Market RSS
+
+
+on:
+
+  schedule:
+
+    - cron: "0 8 * * *"
+      timezone: "Asia/Singapore"
+
+
+  workflow_dispatch:
+
+
+permissions:
+
+  contents: read
+
+  pages: write
+
+  id-token: write
+
+
+concurrency:
+
+  group: "pages"
+
+  cancel-in-progress: true
+
+
+jobs:
+
+  build-and-deploy:
+
+    runs-on: ubuntu-latest
+
+
+    environment:
+
+      name: github-pages
+
+      url: ${{ steps.deployment.outputs.page_url }}
+
+
+    steps:
+
+
+      - name: Get BuildWithJam files
+
+        uses: actions/checkout@v6
+
+
+      - name: Install Python
+
+        uses: actions/setup-python@v6
+
+        with:
+
+          python-version: "3.12"
+
+
+      - name: Install RSS reader
+
+        run: |
+
+          pip install -r requirements.txt
+
+
+      - name: Build today's market newsletter
+
+        run: |
+
+          python generate_market_rss.py
+
+
+      - name: Prepare GitHub Pages
+
+        uses: actions/configure-pages@v5
+
+
+      - name: Upload website
+
+        uses: actions/upload-pages-artifact@v4
+
+        with:
+
+          path: "."
+
+
+      - name: Publish website
+
+        id: deployment
+
+        uses: actions/deploy-pages@v4
