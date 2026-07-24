@@ -89,6 +89,18 @@
   }
   .guide-cover.retirement{ background:var(--grad); }
   .guide-cover.child{ background:linear-gradient(160deg,#F3E2C0,#D6A84B); }
+  .guide-cover.market{
+    background:linear-gradient(160deg,#0A2D51 0%,#3D5A80 48%,#754CA6 100%);
+    color:white;
+  }
+  .market-icon{
+    width:86px;height:86px;border-radius:22px;
+    display:grid;place-items:center;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.24);
+    box-shadow:0 18px 36px rgba(10,45,81,.22);
+  }
+  .market-icon svg{width:46px;height:46px;}
   .guide-tag{
     position:absolute; top:16px; left:16px; background:rgba(255,255,255,.92); color:var(--navy);
     font-size:11.5px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; padding:6px 12px; border-radius:999px;
@@ -177,7 +189,7 @@
     <div class="guides-head">
       <div>
         <span class="eyebrow">Start Here</span>
-        <h2 style="font-size:32px; font-weight:600;">Guides on the decisions that matter most</h2>
+        <h2 style="font-size:32px; font-weight:600;">Explore BuildWithJam</h2>
       </div>
     </div>
 
@@ -204,13 +216,32 @@
         </div>
       </a>
 
+      <a class="guide-card" href="market-update.html">
+        <div class="guide-cover market">
+          <span class="guide-tag">Daily Market</span>
+          <div class="market-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M10 48V18" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <path d="M10 48H54" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <path d="M16 40L27 30L36 35L50 20" stroke="#F3E2C0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M43 20H50V27" stroke="#F3E2C0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="guide-body">
+          <h3>AI Market Pulse</h3>
+          <p>Daily insights on Google, Microsoft, Netflix and other major companies shaping the market — what happened, why it matters and what investors should watch next.</p>
+          <span class="guide-cta">Read today's update →</span>
+        </div>
+      </a>
+
       <div class="guide-card soon">
         <div class="guide-cover soon">
           <span class="guide-tag">Adulting</span>
         </div>
         <div class="guide-body">
           <h3>More guides coming soon</h3>
-          <p>Future guides on adulting essentials — CPF hacks, will writing, and building good money habits early.</p>
+          <p>Future guides on CPF, will writing, investing and building stronger money habits.</p>
         </div>
       </div>
     </div>
