@@ -1,0 +1,35 @@
+{
+  "edition": "MORNING BRIEF",
+  "date": "28 July 2026",
+  "subtitle": "Your 24-hour update on what matters for you and your clients.",
+  "singapore": [
+    {
+      "headline": "Replace this with a Singapore headline",
+      "url": "https://www.channelnewsasia.com/",
+      "summary": "Replace this text with a short, factual summary of what happened.",
+      "source": "Channel NewsAsia",
+      "published": "28 July 2026"
+    }
+  ],
+  "financial": [
+    {
+      "headline": "Replace this with a Singapore financial update",
+      "url": "https://www.cpf.gov.sg/",
+      "summary": "Replace this text with a short, factual summary of the update.",
+      "why_it_matters": "Explain briefly how this may affect insurance, retirement, investments, healthcare financing, cash flow or financial planning.",
+      "source": "CPF Board",
+      "published": "28 July 2026"
+    }
+  ],
+  "global": [
+    {
+      "headline": "Replace this with a global market update",
+      "url": "https://www.reuters.com/",
+      "summary": "Replace this text with a short, factual summary of what happened.",
+      "why_it_matters": "Explain briefly how this development may be relevant to a diversified investment portfolio.",
+      "source": "Reuters",
+      "published": "28 July 2026"
+    }
+  ],
+  "thought": "Markets can change quickly, but sound financial planning remains focused on long-term goals, adequate protection and a well-diversified approach."
+}
