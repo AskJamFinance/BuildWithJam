@@ -1,0 +1,43 @@
+name: Build market newsletter
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "market/news.json"
+      - "market/generate_news.py"
+      - ".github/workflows/build-market-news.yml"
+  schedule:
+    - cron: "0 8,17 * * *"
+      timezone: "Asia/Singapore"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-newsletter
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build newsletter HTML
+        run: python3 market/generate_news.py
+
+      - name: Publish generated newsletter
+        run: |
+          if git diff --quiet -- market/index.html; then
+            echo "Newsletter is already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add market/index.html
+          git commit -m "Update market newsletter"
+          git push
