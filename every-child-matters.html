@@ -1,34 +1,76 @@
+
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Every Child Matters | BuildWithJam</title>
+  <title>Every Child Matters | BuildWithJam Edition</title>
   <meta name="description" content="An interactive child protection conversation guide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{--p:#352052;--p2:#694096;--lav:#f1ebf7;--gold:#d9aa3d;--ink:#241b2b;--muted:#6b6371;--soft:#faf8fc;--line:#e3dce8;--white:#fff}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--soft);color:var(--ink);font-family:Inter,Arial,sans-serif}a{text-decoration:none;color:inherit}button,input{font:inherit}.wrap{max-width:1180px;margin:auto;padding-left:28px;padding-right:28px}.eyebrow{font-size:13px;letter-spacing:.17em;font-weight:900;color:var(--gold)}h1,h2,h3,p{margin-top:0}
-    .hero{min-height:720px;background:var(--p);color:#fff;position:relative;overflow:hidden}.nav{height:84px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:4}.brand{font-size:19px;font-weight:900}.brand span{font-weight:500;color:#dcd0e9}.nav a:last-child{border:1px solid #9e86b4;border-radius:999px;padding:12px 19px;font-weight:800}.heroCopy{padding-top:105px;position:relative;z-index:3}.hero h1{font-size:clamp(52px,7vw,88px);line-height:.98;letter-spacing:-.055em;max-width:780px}.lead{font-size:22px;line-height:1.6;max-width:680px;color:#e5dcef;margin:32px 0}.primary{display:inline-block;background:var(--gold);color:#271a31;padding:15px 22px;border-radius:999px;font-weight:900}.heroPhoto{position:absolute;right:7%;top:145px;width:350px;transform:rotate(2deg);z-index:2}.frame{border:2px dashed #b799ce;border-radius:24px;padding:12px;background:#ffffff12;box-shadow:0 18px 50px #25113420}.placeholder{min-height:405px;border-radius:16px;background:linear-gradient(135deg,#eee6f5,#f8f4fb);color:var(--p);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30px}.placeholder b{font-size:20px;margin:10px}.plus{font-size:46px;color:var(--gold)}
+    .hero{min-height:720px;background:var(--p);color:#fff;position:relative;overflow:hidden}.nav{height:84px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:4}.navActions{display:flex;align-items:center;gap:10px}.brand{font-size:19px;font-weight:900}.brand span{font-weight:500;color:#dcd0e9}.navCta,.languageButton{border:1px solid #9e86b4;border-radius:999px;padding:12px 19px;font-weight:800;background:transparent;color:#fff;cursor:pointer}.languageButton{border-color:var(--gold);color:var(--gold)}.heroCopy{padding-top:105px;position:relative;z-index:3}.hero h1{font-size:clamp(52px,7vw,88px);line-height:.98;letter-spacing:-.055em;max-width:780px}.lead{font-size:22px;line-height:1.6;max-width:680px;color:#e5dcef;margin:32px 0}.primary{display:inline-block;background:var(--gold);color:#271a31;padding:15px 22px;border-radius:999px;font-weight:900}.heroPhoto{position:absolute;right:7%;top:145px;width:350px;transform:rotate(2deg);z-index:2}.frame{border:2px solid #b799ce;border-radius:24px;padding:12px;background:#ffffff12;box-shadow:0 18px 50px #25113420}.photoImage{width:100%;height:100%;min-height:280px;display:block;object-fit:cover;border-radius:16px}.heroPhoto .photoImage{height:405px}.photoCaption{text-align:center;color:var(--muted);font-size:12px!important;margin:9px 4px 0!important}.placeholder{min-height:405px;border-radius:16px;background:linear-gradient(135deg,#eee6f5,#f8f4fb);color:var(--p);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30px}.placeholder b{font-size:20px;margin:10px}.plus{font-size:46px;color:var(--gold)}
     section{padding:105px 0}.heading{max-width:870px;margin-bottom:54px}.heading .eyebrow{color:var(--p2)}.heading h2{font-size:clamp(38px,5vw,58px);line-height:1.08;letter-spacing:-.04em;margin-bottom:20px}.heading>p:last-child{font-size:20px;color:var(--muted);line-height:1.6}.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:38px 28px}.reason{border-top:3px solid var(--gold);padding-top:24px}.circle{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--lav);font-size:28px}.reason small{display:block;color:var(--gold);font-weight:900;margin-top:18px}.reason h3{font-size:25px;margin:9px 0}.reason p{color:var(--muted);line-height:1.55}.callout{margin-top:55px;padding:25px 30px;background:var(--lav);border-radius:18px;font-size:19px;line-height:1.55}.photoStory{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:90px}.photoStory .placeholder{min-height:280px}.photoStory h3{font-size:38px}.photoStory p{font-size:18px;line-height:1.65;color:var(--muted)}
     .purple{background:var(--p);color:#fff}.purple .heading .eyebrow{color:var(--gold)}.purple .heading p{color:#d9cee5}.purposes{display:grid;grid-template-columns:1fr 80px 1fr;align-items:center}.purpose{background:#fff;color:var(--ink);padding:44px;border-radius:24px}.purpose .icon{font-size:46px}.purpose h3{font-size:36px;margin:12px 0 25px}.purpose ul{list-style:none;padding:0}.purpose li{padding:14px 0;border-bottom:1px solid var(--line);font-size:18px}.purpose>p:last-child{color:var(--p2);font-weight:800;margin-top:25px}.neq{text-align:center;color:var(--gold);font-size:38px}
     .calculator{display:grid;grid-template-columns:1.35fr .75fr;background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 24px 70px #40215a12}.controls{padding:42px}.sliderLabel{display:flex;justify-content:space-between;align-items:flex-end;font-weight:900}.sliderLabel strong{font-size:34px;color:var(--p)}input[type=range]{width:100%;accent-color:var(--p2);margin:25px 0 6px}.ends{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}fieldset{border:0;padding:0;margin:40px 0 30px}legend{font-weight:900;margin-bottom:15px}.periods{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.period{border:1px solid var(--line);background:#fff;border-radius:15px;padding:16px;text-align:left;cursor:pointer}.period strong{font-size:28px;color:var(--p)}.period span{margin-left:5px}.period small{display:block;color:var(--muted);margin-top:7px}.period.active{background:var(--lav);border:2px solid var(--p2)}.inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.inputs label{font-size:13px;font-weight:800;color:var(--muted)}.inputs input{width:100%;margin-top:8px;padding:13px;border:1px solid var(--line);border-radius:12px;font-weight:800}.result{background:var(--p);color:#fff;padding:42px}.result .eyebrow{color:var(--gold)}.months{font-size:76px;font-weight:900;margin-top:35px}.months small{font-size:20px}.resultText{color:#d9cee5;line-height:1.5}.formula{border-top:1px solid #73598a;border-bottom:1px solid #73598a;padding:20px 0;margin:32px 0;color:#d9cee5;font-size:14px}.gap{font-size:46px;font-weight:900;color:var(--gold);margin-top:7px}.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.scenario{padding:20px;border:1px solid var(--line);border-radius:16px;background:#fff;text-align:left;cursor:pointer}.scenario strong{display:block;font-size:27px;margin-top:7px}.scenario.active{background:var(--lav);border:2px solid var(--p2)}.note{text-align:center;color:var(--muted);font-size:13px;max-width:900px;margin:30px auto;line-height:1.6}
     .compare{display:grid;grid-template-columns:.8fr 1fr 1fr;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden}.cell{padding:22px 28px;border-bottom:1px solid var(--line);line-height:1.5}.cell:nth-child(3n+2),.cell:nth-child(3n+3){border-left:1px solid var(--line)}.head{min-height:165px;display:flex;flex-direction:column;justify-content:center}.head span{font-size:40px}.head b{font-size:29px;margin:10px 0}.label{background:var(--lav);font-weight:900;color:var(--p)}.whole{background:#fcf9fd}.blend{text-align:center;color:var(--p);font-size:21px;max-width:860px;margin:48px auto}
     .choices{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}.choice .circle{background:#51306f;border:1px solid #745397}.choice small{display:block;color:var(--gold);font-weight:900;margin-top:18px}.choice h3{font-size:20px;margin:8px 0}.choice p{color:#d6c9e2;line-height:1.5}.closing{display:flex;gap:25px;align-items:center;border-top:1px solid #64447d;margin-top:65px;padding-top:35px}.closing>span{font-size:52px}.closing b{font-size:27px;color:var(--gold)}.closing p{color:#e3d9eb;margin:8px 0}footer{display:flex;justify-content:space-between;gap:20px;padding:35px 28px;color:var(--muted);font-size:13px}.whatsapp{position:fixed;right:24px;bottom:24px;background:#25d366;color:#092b16;border-radius:999px;padding:14px 19px;display:flex;gap:9px;align-items:center;font-weight:900;box-shadow:0 12px 32px #143b2450;z-index:20}
     @media(max-width:900px){.heroPhoto{right:-100px;opacity:.42}.reasons,.choices{grid-template-columns:repeat(2,1fr)}.purposes,.calculator,.photoStory{grid-template-columns:1fr}.neq{padding:25px}.inputs,.scenarios{grid-template-columns:1fr}.compare{grid-template-columns:.75fr 1fr 1fr}.cell{padding:18px 12px}}
-    @media(max-width:600px){.nav a:last-child,.heroPhoto{display:none}.hero{min-height:680px}.heroCopy{padding-top:85px}.hero h1{font-size:49px}.lead{font-size:18px}section{padding:78px 0}.reasons,.choices,.periods{grid-template-columns:1fr}.purpose,.controls,.result{padding:28px}.compare{display:block}.cell{border-left:0!important}.head{min-height:110px}.whatsapp b{display:none}.whatsapp{width:52px;height:52px;justify-content:center;padding:0}footer{flex-direction:column}}
+    @media(max-width:600px){.navCta,.heroPhoto{display:none}.languageButton{padding:9px 12px}.hero{min-height:680px}.heroCopy{padding-top:85px}.hero h1{font-size:49px}.lead{font-size:18px}section{padding:78px 0}.reasons,.choices,.periods{grid-template-columns:1fr}.purpose,.controls,.result{padding:28px}.compare{display:block}.cell{border-left:0!important}.head{min-height:110px}.whatsapp b{display:none}.whatsapp{width:52px;height:52px;justify-content:center;padding:0}footer{flex-direction:column}}
+    .brand{display:inline-flex;align-items:center;gap:9px;font-family:"Fraunces",Georgia,serif;font-size:19px;font-weight:600;line-height:1.5;color:#fff}
+    .brand span{font-weight:600;color:#fff}
+    .brandMark{width:18px;height:20px;display:grid;place-items:center;background:#f3e2c0;clip-path:polygon(50% 0,100% 20%,92% 66%,72% 88%,50% 100%,28% 88%,8% 66%,0 20%)}
+    .brandMark:after{content:"";width:5px;height:5px;border-radius:50%;background:var(--p)}
+
+    /* BuildWithJam edition: typography and colour system matched to the main site. */
+    :root{--p:#0A2D51;--p2:#754CA6;--lav:#F1EBFA;--gold:#D6A84B;--ink:#1B1330;--muted:#655C72;--soft:#FFFAF3;--line:#E6DEF1;--white:#fff}
+    body{background:var(--soft);font-family:"Inter",Arial,sans-serif}
+    h1,h2,h3,.brand,.months,.gap,.sliderLabel strong,.period strong,.scenario strong,.head b{font-family:"Fraunces",Georgia,serif;font-weight:600}
+    .hero{background:linear-gradient(165deg,#0A2D51 0%,#754CA6 62%,#9170B8 100%)}
+    .nav{height:78px}
+    .brand,.brand span{color:#fff}
+    .brandMark{background:#F3E2C0}
+    .brandMark:after{background:#0A2D51}
+    .navCta,.languageButton{border-color:#F3E2C0;color:#fff}
+    .languageButton{background:#F3E2C0;color:#0A2D51}
+    .primary{background:#F3E2C0;color:#0A2D51}
+    .frame{border-color:#F3E2C0;background:#fff2}
+    .heading h2{color:#0A2D51}
+    .purple{background:#0A2D51}
+    .purple .heading h2{color:#fff}
+    .purple .heading p,.resultText{color:#E6DEF1}
+    .purpose{box-shadow:0 18px 44px #03182b24}
+    .calculator,.compare{box-shadow:0 20px 55px #0A2D5112}
+    .result{background:linear-gradient(165deg,#0A2D51,#754CA6)}
+    .formula{border-color:#9170B8;color:#F1EBFA}
+    .circle{background:#F1EBFA}
+    .choice .circle{background:#754CA6;border-color:#9170B8}
+    .whole{background:#FFFAF3}
+    .callout,.label,.period.active,.scenario.active{background:#F1EBFA}
+    .period.active,.scenario.active{border-color:#754CA6}
+    footer{background:#FFFAF3}
   </style>
 </head>
 <body>
   <header class="hero" id="top">
-    <nav class="nav wrap"><a class="brand" href="index.html">BuildWithJam <span>• Family Guide</span></a><a href="#calculator">Try the calculator</a></nav>
-    <div class="heroCopy wrap"><p class="eyebrow">EVERY CHILD MATTERS</p><h1>Protecting the family<br>behind the child.</h1><p class="lead">For the little lives closest to our hearts — a gentle guide to protecting the family’s time, choices and future.</p><a class="primary" href="#why">Start the conversation</a></div>
-    <div class="heroPhoto frame"><div class="placeholder"><span class="plus">＋</span><b>Add your family photo</b><small>Replace this block with an &lt;img&gt; tag</small></div></div>
+    <nav class="nav wrap"><a class="brand" href="index.html" aria-label="BuildWithJam home page"><span class="brandMark" aria-hidden="true"></span><span>BuildWithJam</span></a><div class="navActions"><button class="languageButton" id="languageButton" type="button">中文</button><a class="navCta" href="#calculator">Try the calculator</a></div></nav>
+    <div class="heroCopy wrap"><p class="eyebrow">EVERY CHILD MATTERS</p><h1>Protecting the family<br>behind the child.</h1><p class="lead">For the little lives closest to our hearts —<br>a gentle guide to protecting<br>the family’s time, choices and future.</p><a class="primary" href="#why">Start the conversation</a></div>
+    <!-- PHOTO 1: Replace assets/family-hero.png with your preferred family portrait. -->
+    <div class="heroPhoto frame"><img class="photoImage" src="assets/family-hero.png" alt="A family sharing a joyful moment at home"></div>
   </header>
 
   <section id="why"><div class="wrap">
     <div class="heading"><p class="eyebrow">01 · WHY COVERAGE MATTERS</p><h2>A child has no salary. The family can still feel a financial shock.</h2><p>Coverage can create breathing room when the unexpected changes how the family works, cares and plans.</p></div>
     <div class="reasons" id="reasons"></div>
     <div class="callout"><strong>The goal is not to predict the worst.</strong> It is to preserve time, choices and financial stability if plans suddenly change.</div>
-    <div class="photoStory"><div class="frame"><div class="placeholder"><span class="plus">＋</span><b>Add a caring moment</b><small>Parent and child, consultation or family lifestyle</small></div></div><div><p class="eyebrow">A HUMAN MOMENT</p><h3>Protection is really about being present.</h3><p>A meaningful photo here can help clients connect the financial conversation with what matters most: having time and freedom to care.</p></div></div>
+    <div class="photoStory">
+      <!-- PHOTO 2: Replace assets/caring-moment.png with a parent-and-child lifestyle photo. -->
+      <div class="frame"><img class="photoImage" src="assets/caring-moment.png" alt="A parent reading with a young child"></div>
+      <div><p class="eyebrow">A HUMAN MOMENT</p><h3>Protection is really about being present.</h3><p>A meaningful photo here can help clients connect the financial conversation with what matters most: having time and freedom to care.</p></div>
+    </div>
   </div></section>
 
   <section class="purple"><div class="wrap">
@@ -66,7 +108,11 @@
       <div class="cell label">Useful when</div><div class="cell">Budget and maximum protection matter</div><div class="cell whole">Continuity and future insurability matter</div>
     </div>
     <p class="blend">A balanced plan may use <strong>term</strong> for the larger temporary gap and <strong>whole life</strong> for a smaller lifelong base.</p>
-    <div class="photoStory"><div><p class="eyebrow">YOUR CONVERSATION</p><h3>Add a photo that feels like you.</h3><p>Use this frame for a consultation photo, seminar image or warm family visual.</p></div><div class="frame"><div class="placeholder"><span class="plus">＋</span><b>Add your adviser photo</b><small>Portrait or square image works best</small></div></div></div>
+    <div class="photoStory">
+      <div><p class="eyebrow">YOUR CONVERSATION</p><h3>Add a photo that feels like you.</h3><p>Use this frame for a consultation photo, seminar image or warm family visual.</p></div>
+      <!-- PHOTO 3: Replace assets/family-consultation.png with your own consultation or adviser photo. -->
+      <div class="frame"><img class="photoImage" src="assets/family-consultation.png" alt="A financial consultant speaking with a family"></div>
+    </div>
   </div></section>
 
   <section class="purple"><div class="wrap">
@@ -80,6 +126,133 @@
 
   <script>
     const money=new Intl.NumberFormat("en-SG",{style:"currency",currency:"SGD",maximumFractionDigits:0});
+    let currentLang="en";
+    const originalText=new WeakMap();
+    const zh={
+      "• Family Guide":"• 家庭指南",
+      "Try the calculator":"试用计算器",
+      "EVERY CHILD MATTERS":"每个孩子都很重要",
+      "Protecting the family":"守护孩子背后的家庭",
+      "behind the child.":"",
+      "For the little lives closest to our hearts —":"为了我们心中最珍贵的小生命——",
+      "a gentle guide to protecting":"一份温暖的指南，守护",
+      "the family’s time, choices and future.":"家庭的时间、选择与未来。",
+      "Start the conversation":"开始了解",
+      "01 · WHY COVERAGE MATTERS":"01 · 为什么保障很重要",
+      "A child has no salary. The family can still feel a financial shock.":"孩子没有收入，但家庭仍可能面对巨大的经济冲击。",
+      "Coverage can create breathing room when the unexpected changes how the family works, cares and plans.":"当意外改变家庭的工作、照顾和生活安排时，保障可以带来喘息空间。",
+      "Work":"工作",
+      "A parent may reduce hours or stop work to provide care.":"父母一方可能需要减少工作时间或暂时停工照顾孩子。",
+      "Care":"照顾",
+      "Therapy, transport or paid help may add new costs.":"治疗、交通或聘请照顾者可能带来额外开支。",
+      "Time":"时间",
+      "Treatment may end before the family has fully recovered.":"疗程结束后，家庭可能仍需要时间恢复。",
+      "Insurability":"未来投保机会",
+      "Early cover may protect options before health changes.":"在健康状况改变前及早规划，可保留未来的保障选择。",
+      "A head start":"提早起步",
+      "A small foundation today may support future protection needs.":"今天建立基础保障，可为未来需要做好准备。",
+      "Family continuity":"家庭生活延续",
+      "Daily routines and important family goals can stay on track.":"帮助日常生活和重要家庭目标继续前进。",
+      "The goal is not to predict the worst.":"目的不是预测最坏的情况。",
+      "It is to preserve time, choices and financial stability if plans suddenly change.":"而是在计划突然改变时，守住时间、选择和经济稳定。",
+      "Photo position 2 · A caring family moment":"照片位置 2 · 温馨的亲子时刻",
+      "A HUMAN MOMENT":"真挚的家庭时刻",
+      "Protection is really about being present.":"保障的意义，是让我们能够陪伴。",
+      "A meaningful photo here can help clients connect the financial conversation with what matters most: having time and freedom to care.":"这张照片能让客户明白，财务规划最终守护的是陪伴家人的时间与自由。",
+      "02 · TWO DIFFERENT JOBS":"02 · 两种不同的作用",
+      "Death and Critical Illness solve different family problems.":"身故保障与重疾保障，解决的是不同的家庭需要。",
+      "CRITICAL ILLNESS":"重大疾病",
+      "A caregiving fund":"照顾家庭的资金",
+      "💼 Replace income while a parent provides care":"💼 父母照顾孩子期间补充减少的收入",
+      "🩺 Pay for therapy, transport or a helper":"🩺 支付治疗、交通或照顾者费用",
+      "🏠 Keep household commitments running":"🏠 维持家庭日常开支与责任",
+      "Support during treatment and recovery.":"在治疗与康复期间提供支持。",
+      "DEATH":"身故",
+      "A family recovery fund":"家庭缓冲与恢复资金",
+      "🌿 Meet immediate and final expenses":"🌿 应付即时与善后费用",
+      "🕰️ Allow parents time away from work":"🕰️ 让父母有时间暂离工作",
+      "🤍 Fund counselling and practical support":"🤍 支付辅导与实际家庭支援",
+      "Space for the family to grieve and reset.":"给家庭时间与空间哀悼并重新出发。",
+      "03 · FIND A STARTING AMOUNT":"03 · 找到规划起点",
+      "Estimate the Critical Illness caregiving gap.":"估算重大疾病照顾资金缺口。",
+      "Move one slider, choose a period and adjust the money already available.":"移动滑杆、选择照顾期限，再调整现有资金。",
+      "Monthly income or expenses to replace":"每月需要补充的收入或开支",
+      "How long might the family need support?":"家庭可能需要多长时间的支持？",
+      "months":"个月",
+      "Basic buffer":"基本缓冲",
+      "Balanced buffer":"平衡缓冲",
+      "Stronger buffer":"加强缓冲",
+      "Extra care reserve":"额外照顾备用金",
+      "Savings set aside":"预留储蓄",
+      "Existing CI cover":"现有重疾保障",
+      "YOUR SELECTED SCENARIO":"您选择的方案",
+      "Estimated caregiving gap":"估算照顾资金缺口",
+      "Illustrative needs analysis only. Review affordability, existing policies, benefit overlap, definitions, exclusions and waiting periods before deciding.":"此结果仅作需求分析参考。决定前，请检查负担能力、现有保单、保障重叠、定义、不保事项及等待期。",
+      "04 · CHOOSE THE TOOL":"04 · 选择合适的工具",
+      "Term and whole life are tools. Purpose decides the mix.":"定期与终身保险都是工具，保障目的决定如何搭配。",
+      "Compare the tools":"比较两种工具",
+      "Term":"定期保险",
+      "More cover for a set period":"在指定期间提供较高保障",
+      "Whole life":"终身保险",
+      "A lifelong foundation":"建立终身保障基础",
+      "Best suited for":"较适合",
+      "A large, time-limited need":"较大但有期限的保障需要",
+      "A permanent base of protection":"长期、持续的基础保障",
+      "Cost at the start":"初期费用",
+      "Usually lower for the same initial cover":"相同初始保额下通常较低",
+      "Usually higher; may build cash value":"通常较高；部分计划可能累积现金价值",
+      "How long it lasts":"保障期限",
+      "Ends at the selected term":"在所选期限结束",
+      "Designed to continue for life":"设计为终身持续",
+      "Main trade-off":"主要取舍",
+      "Future cover may cost more or be unavailable":"未来投保可能更贵或无法获保",
+      "A longer premium and policy commitment":"保费与保单承诺期较长",
+      "Useful when":"适合情况",
+      "Budget and maximum protection matter":"重视预算与较高保障时",
+      "Continuity and future insurability matter":"重视长期保障与未来投保机会时",
+      "A balanced plan may use":"平衡的规划可使用",
+      "for the larger temporary gap and":"应付较大的短期缺口，并以",
+      "for a smaller lifelong base.":"建立较小的终身保障基础。",
+      "YOUR CONVERSATION":"您的客户对话",
+      "Add a photo that feels like you.":"加入一张能代表您的照片。",
+      "Use this frame for a consultation photo, seminar image or warm family visual.":"可在这里放置咨询、讲座或温馨家庭照片。",
+      "Photo position 3 · Your consultation or adviser image":"照片位置 3 · 您的咨询或顾问照片",
+      "05 · PROTECT THE CHOICES":"05 · 守护家庭的选择",
+      "A good child plan protects choices without weakening today’s family budget.":"好的儿童保障规划，在守护选择的同时，不削弱今天的家庭预算。",
+      "Medical foundation":"医疗保障基础",
+      "Review hospital cover first":"先检查住院医疗保障",
+      "Family cash gap":"家庭资金缺口",
+      "Compare 12, 24 and 36 months":"比较 12、24 与 36 个月",
+      "Right structure":"合适的保障结构",
+      "Term, whole life or a blend":"定期、终身或混合搭配",
+      "Sustainable budget":"可持续的预算",
+      "Choose an amount you can maintain":"选择能够长期维持的金额",
+      "Yearly review":"每年检视",
+      "Update as family needs change":"随家庭需要变化而调整",
+      "The best plan is not the biggest plan.":"最好的规划，不是最大的规划。",
+      "It is enough support, for the right purpose, at a cost the family can comfortably keep.":"而是为正确目的提供足够支持，并维持家庭能够舒适承担的费用。",
+      "Child Protection Conversation Guide":"儿童保障沟通指南",
+      "For education and discussion only":"仅供教育与讨论用途",
+      "Chat with Jamica":"与 Jamica 联系",
+      "12-month need":"12 个月所需保障",
+      "24-month need":"24 个月所需保障",
+      "36-month need":"36 个月所需保障",
+      "Stable income, strong savings and family support":"收入稳定、储蓄充足，并有家人协助",
+      "One parent may reduce work for a longer period":"父母一方可能需要较长时间减少工作",
+      "Income is less stable or caregiving support is limited":"收入较不稳定，或照顾支援有限"
+    };
+    function applyLanguage(){
+      const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+      let node;
+      while(node=walker.nextNode()){
+        if(["SCRIPT","STYLE"].includes(node.parentElement?.tagName))continue;
+        if(!originalText.has(node))originalText.set(node,node.nodeValue);
+        const base=originalText.get(node),key=base.trim();
+        node.nodeValue=currentLang==="zh"&&zh[key]?base.replace(key,zh[key]):base;
+      }
+      document.documentElement.lang=currentLang==="zh"?"zh-CN":"en";
+      document.querySelector("#languageButton").textContent=currentLang==="zh"?"English":"中文";
+    }
     const reasons=[["💼","Work","A parent may reduce hours or stop work to provide care."],["🤲","Care","Therapy, transport or paid help may add new costs."],["⏳","Time","Treatment may end before the family has fully recovered."],["🛡️","Insurability","Early cover may protect options before health changes."],["🌱","A head start","A small foundation today may support future protection needs."],["🏡","Family continuity","Daily routines and important family goals can stay on track."]];
     document.querySelector("#reasons").innerHTML=reasons.map((r,i)=>`<article class="reason"><div class="circle">${r[0]}</div><small>0${i+1}</small><h3>${r[1]}</h3><p>${r[2]}</p></article>`).join("");
     const choiceData=[["🏥","Medical foundation","Review hospital cover first"],["🧮","Family cash gap","Compare 12, 24 and 36 months"],["⚖️","Right structure","Term, whole life or a blend"],["🌤️","Sustainable budget","Choose an amount you can maintain"],["🔄","Yearly review","Update as family needs change"]];
@@ -97,7 +270,9 @@
       document.querySelector("#periods").innerHTML=periods.map(p=>`<button class="period ${p.m===selected?"active":""}" data-month="${p.m}"><strong>${p.m}</strong><span>months</span><small>${p.l}</small></button>`).join("");
       document.querySelector("#scenarios").innerHTML=periods.map(p=>`<button class="scenario ${p.m===selected?"active":""}" data-month="${p.m}"><span>${p.m}-month need</span><strong>${money.format(gap(p.m))}</strong></button>`).join("");
       document.querySelectorAll("[data-month]").forEach(b=>b.onclick=()=>{selected=+b.dataset.month;render()});
+      applyLanguage();
     }
+    document.querySelector("#languageButton").addEventListener("click",()=>{currentLang=currentLang==="en"?"zh":"en";applyLanguage()});
     [income,reserve,savings,existing].forEach(x=>x.addEventListener("input",render));render();
   </script>
 </body>
