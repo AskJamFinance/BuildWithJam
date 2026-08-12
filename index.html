@@ -116,16 +116,36 @@
   .guide-cover.soon .guide-tag{ position:static; background:none; color:var(--purple); }
 
   /* ABOUT STRIP */
-  .about{ background:var(--navy); color:white; }
-  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
-  .about h2{ color:white; font-size:32px; font-weight:600; }
-  .about p{ color:rgba(255,255,255,.78); font-size:16px; margin:16px 0 0; }
-  .about-photo{
-     max-width:360px;
-  aspect-ratio:4/5;
+  .about{ 
+  background:var(--navy); 
+  color:white; 
+}
+
+.about-grid{ 
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:48px;
+  align-items:center;
+}
+
+.about h2{ 
+  color:white; 
+  font-size:32px; 
+  font-weight:600; 
+}
+
+.about p{ 
+  color:rgba(255,255,255,.78); 
+  font-size:16px; 
+  margin:16px 0 0; 
+}
+
+.about-photo{
+  width:320px;
+  height:400px;
   border-radius:24px;
   overflow:hidden;
-  margin:0 auto;
+  padding:0;
 }
 
 .about-photo img{
