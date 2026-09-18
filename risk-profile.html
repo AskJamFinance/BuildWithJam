@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know Your Investor Risk Profile — BuildWithJamica</title>
+<style>
+  :root{
+    --purple:#754CA6;
+    --navy:#0A2D51;
+    --deep:#031834;
+    --border:#B8AEC6;
+    --lilac:#9170B8;
+    --paper:#FBF9FC;
+    --ink:#151022;
+    --ok:#3FBF8F;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Fraunces', Georgia, serif;
+    background:linear-gradient(165deg, var(--navy) 0%, var(--lilac) 100%);
+    min-height:100vh;
+    color:var(--ink);
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:32px 16px 64px;
+  }
+  .sans{ font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+  .stage{
+    width:100%;
+    max-width:520px;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:22px;
+    color:#F1EAF7;
+  }
+  .brand .mark{
+    width:34px;height:34px;border-radius:50%;
+    background:#F1EAF7;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    color:var(--purple);
+    font-size:16px;
+  }
+  .brand .name{
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    letter-spacing:.02em;
+    font-weight:600;
+  }
+
+  .card{
+    background:var(--paper);
+    border-radius:22px;
+    box-shadow:0 24px 60px rgba(3,24,52,0.35);
+    overflow:hidden;
+    position:relative;
+    min-height:520px;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .track{
+    height:5px;
+    background:#EAE3F1;
+    position:relative;
+  }
+  .track-fill{
+    position:absolute;left:0;top:0;bottom:0;
+    background:var(--purple);
+    width:0%;
+    transition:width .5s ease;
+  }
+
+  .pane{
+    padding:38px 30px 30px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* INTRO */
+  .intro h1{
+    font-size:28px;
+    line-height:1.25;
+    margin:0 0 14px;
+    color:var(--navy);
+  }
+  .intro p{
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    line-height:1.6;
+    color:#4A4459;
+    margin:0 0 28px;
+  }
+  .intro .facts{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    color:#6B6478;
+    display:flex;
+    gap:18px;
+    margin-bottom:32px;
+    flex-wrap:wrap;
+  }
+  .intro .facts span{
+    display:flex;align-items:center;gap:6px;
+  }
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--purple);display:inline-block;}
+
+  /* QUESTIONS */
+  .q-meta{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    letter-spacing:.04em;
+    color:var(--purple);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .q-text{
+    font-size:21px;
+    line-height:1.4;
+    color:var(--navy);
+    margin:0 0 24px;
+  }
+  .options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .opt{
+    font-family:'Inter',sans-serif;
+    text-align:left;
+    border:1.5px solid var(--border);
+    background:#fff;
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:14.5px;
+    line-height:1.45;
+    color:var(--ink);
+    cursor:pointer;
+    transition:border-color .15s ease, background .15s ease, transform .1s ease;
+  }
+  .opt:hover{
+    border-color:var(--purple);
+    background:#F7F3FB;
+  }
+  .opt:active{ transform:scale(0.99); }
+  .opt.selected{
+    border-color:var(--purple);
+    background:var(--purple);
+    color:#fff;
+  }
+
+  .nav-row{
+    margin-top:auto;
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .back-link{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    color:#8A8397;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px 0;
+  }
+  .back-link:disabled{ visibility:hidden; }
+  .next-btn{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    border-radius:30px;
+    padding:13px 26px;
+    cursor:pointer;
+    transition:background .15s ease, opacity .15s ease;
+  }
+  .next-btn:disabled{
+    background:#D9D3E2;
+    color:#A79FB3;
+    cursor:not-allowed;
+  }
+  .next-btn:not(:disabled):hover{ background:var(--purple); }
+
+  .start-btn{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    border-radius:30px;
+    padding:15px 0;
+    width:100%;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  .start-btn:hover{ background:var(--purple); }
+
+  /* RESULT */
+  .result-eyebrow{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    letter-spacing:.04em;
+    color:var(--purple);
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .result-title{
+    font-size:30px;
+    color:var(--navy);
+    margin:0 0 6px;
+    line-height:1.2;
+  }
+  .result-sub{
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    color:#6B6478;
+    margin:0 0 22px;
+  }
+  .meter{
+    position:relative;
+    height:8px;
+    border-radius:6px;
+    background:linear-gradient(90deg,#CFE8DB,#E9E1B8,#F0C9A6,#E7A4A0);
+    margin-bottom:10px;
+  }
+  .meter-dot{
+    position:absolute;
+    top:-5px;
+    width:18px;height:18px;
+    border-radius:50%;
+    background:var(--navy);
+    border:3px solid #fff;
+    box-shadow:0 2px 8px rgba(0,0,0,0.25);
+    transform:translateX(-50%);
+    transition:left .6s ease;
+  }
+  .meter-labels{
+    display:flex;
+    justify-content:space-between;
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    color:#9B94A6;
+    margin-bottom:26px;
+  }
+  .result-body{
+    font-family:'Inter',sans-serif;
+    font-size:14.5px;
+    line-height:1.65;
+    color:#3A3446;
+    background:#F4EFF8;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:14px;
+  }
+  .result-note{
+    font-family:'Inter',sans-serif;
+    font-size:12.5px;
+    line-height:1.6;
+    color:#8A8397;
+    margin-bottom:26px;
+  }
+  .cta{
+    margin-top:auto;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .wa-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    background:#128C4A;
+    color:#fff;
+    border:none;
+    border-radius:30px;
+    padding:15px 0;
+    text-decoration:none;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  .wa-btn:hover{ background:#0F7A40; }
+  .restart-link{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    color:#8A8397;
+    background:none;
+    border:none;
+    cursor:pointer;
+    text-align:center;
+    padding:6px 0;
+  }
+  .restart-link:hover{ color:var(--purple); }
+
+  .foot{
+    text-align:center;
+    margin-top:20px;
+    font-family:'Inter',sans-serif;
+    font-size:11.5px;
+    color:#D9CFE9;
+    line-height:1.6;
+  }
+
+  [data-view]{ display:none; }
+  [data-view].active{ display:flex; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="brand">
+    <div class="mark">J</div>
+    <div class="name">BUILDWITHJAMICA</div>
+  </div>
+
+  <div class="card">
+    <div class="track"><div class="track-fill" id="trackFill"></div></div>
+
+    <!-- INTRO -->
+    <div class="pane intro active" data-view="intro">
+      <h1>Before we talk numbers, let's find your investing comfort zone.</h1>
+      <p>Six quick questions. No right or wrong answers &mdash; just an honest read of how you feel about risk, time, and money. Takes about 90 seconds, and it's the same starting point I use with every client.</p>
+      <div class="facts">
+        <span><i class="dot"></i>6 questions</span>
+        <span><i class="dot"></i>~90 seconds</span>
+        <span><i class="dot"></i>Private, not saved</span>
+      </div>
+      <button class="start-btn sans" onclick="startQuiz()">Start my risk profile</button>
+    </div>
+
+    <!-- QUESTIONS -->
+    <div class="pane" data-view="quiz" id="quizPane"></div>
+
+    <!-- RESULT -->
+    <div class="pane" data-view="result" id="resultPane"></div>
+  </div>
+
+  <div class="foot">Risk profiling questions are adapted for general education and are not a substitute for the formal Customer Knowledge Assessment and Risk Profiling Questionnaire completed during your advisory process.</div>
+</div>
+
+<script>
+const questions = [
+  {
+    q: "How many years of investing experience do you have?",
+    opts: [
+      "None &mdash; I'm just starting out",
+      "1&ndash;4 years",
+      "5&ndash;9 years",
+      "10 years or more"
+    ]
+  },
+  {
+    q: "To aim for higher returns, you usually have to accept bigger swings along the way. What's true for you?",
+    opts: [
+      "I'd be uneasy losing even 10% short-term",
+      "I could accept a dip of up to 20%",
+      "I could accept a dip of up to 30%",
+      "I could accept a dip of more than 30%"
+    ]
+  },
+  {
+    q: "Imagine your investment is down at the end of your planned time horizon. How comfortable are you holding on, waiting for a recovery?",
+    opts: [
+      "Not comfortable &mdash; I'd want to exit",
+      "Somewhat comfortable, for a year or two",
+      "Comfortable holding for several years",
+      "Very comfortable holding 10 years or more"
+    ]
+  },
+  {
+    q: "If your income stopped today, how long could your savings and assets cover your current lifestyle?",
+    opts: [
+      "Less than a year",
+      "1&ndash;5 years",
+      "5&ndash;15 years",
+      "15 years or more"
+    ]
+  },
+  {
+    q: "On your own, without advice, which of these would you consider investing in?",
+    opts: [
+      "Just savings accounts and fixed deposits",
+      "Bonds and blue-chip stocks",
+      "Growth stocks, REITs, or diversified funds",
+      "Gold, commodities, leveraged FX, or private equity"
+    ]
+  },
+  {
+    q: "How many years away are you from retirement?",
+    opts: [
+      "Retired, or within 5 years",
+      "5&ndash;10 years away",
+      "10&ndash;15 years away",
+      "15 years or more away"
+    ]
+  }
+];
+
+const profiles = [
+  {
+    max: 10,
+    name: "Conservative Investor",
+    range: "Lower risk",
+    body: "You lean towards protecting what you have. Capital preservation and stability matter more to you than chasing high returns, and that's a completely valid place to start &mdash; especially if you're new to investing or your time horizon is short. The right portfolio for you would lean heavily on lower-volatility instruments."
+  },
+  {
+    max: 15,
+    name: "Balanced Investor",
+    range: "Low to medium risk",
+    body: "You're open to some ups and downs in exchange for better long-term growth, but you'd still want a meaningful cushion of stability. A blended portfolio, mixing growth assets with more defensive holdings, is likely the sweet spot for you."
+  },
+  {
+    max: 20,
+    name: "Growth Investor",
+    range: "Medium to high risk",
+    body: "You're comfortable riding out volatility for the sake of stronger long-term returns, and your time horizon and financial cushion support that. A portfolio tilted towards growth assets, with some diversification for balance, would suit your profile."
+  },
+  {
+    max: 24,
+    name: "Aggressive Investor",
+    range: "Higher risk",
+    body: "You're aiming for significant capital growth and you understand that comes with real possibility of sharp swings, even short-term losses. Your profile can support a portfolio weighted heavily towards growth and higher-volatility assets."
+  }
+];
+
+let current = 0;
+let answers = new Array(questions.length).fill(null);
+
+function startQuiz(){
+  document.querySelector('[data-view="intro"]').classList.remove('active');
+  document.querySelector('[data-view="quiz"]').classList.add('active');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const pane = document.getElementById('quizPane');
+  const item = questions[current];
+  const pct = ((current) / questions.length) * 100;
+  document.getElementById('trackFill').style.width = pct + '%';
+
+  let optsHtml = item.opts.map((o, i) => {
+    const sel = answers[current] === (i+1) ? ' selected' : '';
+    return `<button class="opt${sel}" onclick="selectOpt(${i+1})">${o}</button>`;
+  }).join('');
+
+  pane.innerHTML = `
+    <div class="q-meta sans">QUESTION ${current+1} OF ${questions.length}</div>
+    <div class="q-text">${item.q}</div>
+    <div class="options">${optsHtml}</div>
+    <div class="nav-row">
+      <button class="back-link sans" onclick="prevQ()" ${current===0 ? 'disabled' : ''}>Back</button>
+      <button class="next-btn sans" id="nextBtn" onclick="nextQ()" ${answers[current] ? '' : 'disabled'}>${current === questions.length-1 ? 'See my result' : 'Next'}</button>
+    </div>
+  `;
+}
+
+function selectOpt(val){
+  answers[current] = val;
+  renderQuestion();
+}
+
+function prevQ(){
+  if(current > 0){ current--; renderQuestion(); }
+}
+
+function nextQ(){
+  if(!answers[current]) return;
+  if(current < questions.length - 1){
+    current++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult(){
+  document.querySelector('[data-view="quiz"]').classList.remove('active');
+  document.getElementById('trackFill').style.width = '100%';
+  const resView = document.querySelector('[data-view="result"]');
+  resView.classList.add('active');
+
+  const score = answers.reduce((a,b) => a+b, 0);
+  const profile = profiles.find(p => score <= p.max) || profiles[profiles.length-1];
+  const pct = Math.min(100, Math.max(0, ((score - 6) / (24 - 6)) * 100));
+
+  const message = `Hi Jamica, I just completed my risk profile assessment and my result was "${profile.name}" (score ${score}/24). I would like you to walk through my risk profile and investment options with me.`;
+  const waLink = `https://wa.me/6590694815?text=${encodeURIComponent(message)}`;
+
+  document.getElementById('resultPane').innerHTML = `
+    <div class="result-eyebrow sans">YOUR RESULT &middot; SCORE ${score}/24</div>
+    <div class="result-title">${profile.name}</div>
+    <div class="result-sub sans">${profile.range}</div>
+    <div class="meter"><div class="meter-dot" style="left:${pct}%;"></div></div>
+    <div class="meter-labels">
+      <span>Lower</span><span>Low&ndash;Med</span><span>Med&ndash;High</span><span>Higher</span>
+    </div>
+    <div class="result-body">${profile.body}</div>
+    <div class="result-note">This is a simplified, educational read of your risk comfort. Your actual investment approach should also weigh your goals, time horizon, and full financial picture &mdash; which is exactly what the conversation with Jamica is for.</div>
+    <div class="cta">
+      <a class="wa-btn" href="${waLink}" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.98.577 3.826 1.573 5.38L2 22l4.75-1.548A9.953 9.953 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2a8.17 8.17 0 0 1-4.166-1.14l-.299-.177-3.096 1.008 1.026-3.02-.194-.31A8.17 8.17 0 0 1 3.8 12c0-4.53 3.67-8.2 8.2-8.2 4.53 0 8.2 3.67 8.2 8.2 0 4.53-3.67 8.2-8.2 8.2z"/></svg>
+        Walk through my results with Jamica
+      </a>
+      <button class="restart-link sans" onclick="restart()">Retake the quiz</button>
+    </div>
+  `;
+}
+
+function restart(){
+  current = 0;
+  answers = new Array(questions.length).fill(null);
+  document.querySelector('[data-view="result"]').classList.remove('active');
+  document.querySelector('[data-view="intro"]').classList.add('active');
+  document.getElementById('trackFill').style.width = '0%';
+}
+</script>
+</body>
+</html>
